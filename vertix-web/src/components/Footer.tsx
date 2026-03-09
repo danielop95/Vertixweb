@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { IconMapPin, IconPhone, IconClock, IconMail, VertixLogo } from "@/components/Icons";
+import { IconMapPin, IconPhone, IconClock, IconMail } from "@/components/Icons";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   return (
@@ -9,8 +10,8 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="md:col-span-5 flex flex-col gap-6">
-            <Link href="/" className="flex items-center text-white">
-              <VertixLogo height={30} />
+            <Link href="/" className="flex items-center gap-2 text-white">
+              <Logo height={28} />
             </Link>
             <p className="font-display text-lg text-gold">
               Ciencia, Movimiento y Bienestar
