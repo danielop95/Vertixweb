@@ -402,17 +402,17 @@ export default function Home() {
               >
                 {/* Image bg placeholder */}
                 <div className="absolute inset-0 bg-secondary/10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/40 to-transparent transition-opacity group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/40 to-transparent opacity-90 md:opacity-100 md:group-hover:opacity-90 transition-opacity" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-white/80 max-w-sm opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  <p className="text-white/80 max-w-sm opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     {service.desc}
                   </p>
                   <Link
                     href="/servicios"
-                    className="text-gold font-bold mt-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75"
+                    className="text-gold font-bold mt-3 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75"
                   >
                     Conocer más →
                   </Link>
