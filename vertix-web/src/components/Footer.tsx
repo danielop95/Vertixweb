@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="md:col-span-5 flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2 text-white">
-              <Logo height={28} />
+              <Logo height={44} />
             </Link>
             <p className="font-display text-lg text-gold">
               Ciencia, Movimiento y Bienestar
