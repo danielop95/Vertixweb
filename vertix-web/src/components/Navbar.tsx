@@ -43,7 +43,7 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
-          <Link href="/" className={`flex items-center gap-2 transition-colors duration-300 ${isDarkContext ? "text-white" : "text-primary"}`}>
+          <Link href="/" className={`flex items-center gap-2 transition-colors duration-300 ${scrolled ? "text-primary" : isDarkContext ? "text-white" : "text-primary"}`}>
             <svg
               width="32"
               height="32"
@@ -66,9 +66,9 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`relative font-medium transition-colors hover:text-gold ${
-                  pathname === link.href
-                    ? isDarkContext ? "text-white" : "text-primary"
-                    : isDarkContext ? "text-white/70" : "text-dark/70"
+                  scrolled
+                    ? pathname === link.href ? "text-primary" : "text-dark/70"
+                    : pathname === link.href ? isDarkContext ? "text-white" : "text-primary" : isDarkContext ? "text-white/70" : "text-dark/70"
                 }`}
               >
                 {link.label}
@@ -85,9 +85,11 @@ export function Navbar() {
           <Link
             href="/contacto"
             className={`hidden md:flex items-center justify-center h-11 px-6 font-bold rounded-full transition-all duration-300 ${
-              isDarkContext
-                ? "bg-gold hover:bg-gold-hover text-dark"
-                : "bg-gold hover:bg-primary text-dark hover:text-white"
+              scrolled
+                ? "bg-primary hover:bg-gold text-white hover:text-dark"
+                : isDarkContext
+                  ? "bg-gold hover:bg-gold-hover text-dark"
+                  : "bg-gold hover:bg-primary text-dark hover:text-white"
             }`}
           >
             Agenda tu cita
@@ -95,7 +97,7 @@ export function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden p-2 transition-colors duration-300 ${isDarkContext ? "text-white" : "text-primary"}`}
+            className={`md:hidden p-2 transition-colors duration-300 ${scrolled ? "text-primary" : isDarkContext ? "text-white" : "text-primary"}`}
             aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
           >
             <svg
