@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPostBySlug, getPostSlugs, getAllPosts, extractHeadings } from "@/lib/blog";
@@ -89,7 +90,18 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       {/* Hero Image */}
       <div className="relative w-full h-[300px] md:h-[400px] bg-primary overflow-hidden">
-        <div className="w-full h-full bg-secondary/20" />
+        {post.image ? (
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        ) : (
+          <div className="w-full h-full bg-secondary/20" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
           <div className="max-w-[1200px] mx-auto">
@@ -186,10 +198,20 @@ export default async function BlogPostPage({ params }: PageProps) {
             {related.map((rp) => (
               <Link key={rp.slug} href={`/blog/${rp.slug}`} className="group cursor-pointer">
                 <div className="aspect-video rounded-2xl bg-light mb-4 relative overflow-hidden">
-                  <div className="absolute top-3 left-3 bg-gold text-dark text-xs font-bold px-3 py-1 rounded-full">
+                  <div className="absolute top-3 left-3 z-10 bg-gold text-dark text-xs font-bold px-3 py-1 rounded-full">
                     {rp.category}
                   </div>
-                  <div className="w-full h-full bg-secondary/10 group-hover:scale-105 transition-transform duration-500" />
+                  {rp.image ? (
+                    <Image
+                      src={rp.image}
+                      alt={rp.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-secondary/10 group-hover:scale-105 transition-transform duration-500" />
+                  )}
                 </div>
                 <h4 className="font-bold text-primary group-hover:text-gold transition-colors">
                   {rp.title}

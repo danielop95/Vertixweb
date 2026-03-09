@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { IconMedical, IconUsers, IconClock, IconShieldCheck, IconPhone } from "@/components/Icons";
 
 const fadeInUp = {
@@ -213,14 +214,15 @@ export default function Home() {
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[80%] rounded-full opacity-40"
                   style={{ background: "radial-gradient(ellipse, rgba(41,81,76,0.15) 0%, transparent 70%)" }}
                 />
-                {/* Image placeholder — replace with actual photo */}
-                <div className="relative w-full max-w-[480px] h-full rounded-t-[40px] overflow-hidden bg-gradient-to-b from-primary/5 to-primary/10">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {/* Stylized V silhouette as placeholder */}
-                    <svg width="200" height="240" viewBox="0 0 200 240" fill="none" className="opacity-10">
-                      <path d="M20 20L100 220L180 20" stroke="#29514C" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
+                <div className="relative w-full max-w-[480px] h-full rounded-t-[40px] overflow-hidden">
+                  <Image
+                    src="/images/hero/hero-doctora.webp"
+                    alt="Dra. Ingrid Parra — Rehabilitación deportiva en Barranquilla"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 480px"
+                  />
                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-warm-white/80 to-transparent" />
                 </div>
 
@@ -378,18 +380,22 @@ export default function Home() {
               {
                 title: "Medicina del Deporte",
                 desc: "Optimización del rendimiento y prevención de lesiones para atletas de todos los niveles.",
+                img: "/images/servicios/medicina-deporte.webp",
               },
               {
                 title: "Ortopedia Especializada",
                 desc: "Diagnóstico y tratamiento preciso de afecciones musculoesqueléticas.",
+                img: "/images/servicios/ortopedia.webp",
               },
               {
                 title: "Fisioterapia",
                 desc: "Rehabilitación funcional basada en evidencia para recuperar tu movimiento.",
+                img: "/images/servicios/fisioterapia.webp",
               },
               {
                 title: "Entrenamiento",
                 desc: "Programas personalizados para fortalecer tu cuerpo y prevenir futuras lesiones.",
+                img: "/images/servicios/entrenamiento.webp",
               },
             ].map((service, i) => (
               <motion.div
@@ -400,8 +406,13 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                {/* Image bg placeholder */}
-                <div className="absolute inset-0 bg-secondary/10" />
+                <Image
+                  src={service.img}
+                  alt={service.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/40 to-transparent transition-opacity group-hover:opacity-90" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
@@ -458,12 +469,16 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div
-                className="w-full aspect-[3/4] bg-secondary/10 overflow-hidden shadow-xl"
+                className="relative w-full aspect-[3/4] overflow-hidden shadow-xl"
                 style={{ borderRadius: "60% 40% 50% 50% / 50% 60% 40% 50%" }}
               >
-                <div className="w-full h-full flex items-center justify-center text-secondary/40 text-base">
-                  Imagen: Filosofía Vertix
-                </div>
+                <Image
+                  src="/images/filosofia/filosofia-vertix.webp"
+                  alt="Equipo Vertix trabajando con un paciente"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
               </div>
             </motion.div>
           </div>
@@ -493,18 +508,21 @@ export default function Home() {
                 title: "Cómo evitar lesiones comunes al empezar a correr",
                 excerpt:
                   "Una guía completa para principiantes sobre biomecánica básica y preparación física.",
+                img: "/images/blog/prevencion-correr.webp",
               },
               {
                 cat: "Recuperación",
                 title: "El rol del descanso activo en tu terapia",
                 excerpt:
                   "Por qué detenerse completamente a veces es contraproducente para curar ciertas lesiones.",
+                img: "/images/blog/descanso-activo.webp",
               },
               {
                 cat: "Nutrición",
                 title: "Alimentos que reducen la inflamación articular",
                 excerpt:
                   "Complementa tu tratamiento de fisioterapia con estas recomendaciones nutricionales clave.",
+                img: "/images/blog/nutricion-articular.webp",
               },
             ].map((post, i) => (
               <motion.article
@@ -519,7 +537,13 @@ export default function Home() {
                   <div className="absolute top-4 left-4 z-10 bg-gold text-dark text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
                     {post.cat}
                   </div>
-                  <div className="w-full h-full bg-secondary/10 group-hover:scale-105 transition-transform duration-500" />
+                  <Image
+                    src={post.img}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 280px, 33vw"
+                  />
                 </div>
                 <div className="flex flex-col gap-2 px-2">
                   <h3 className="text-xl font-bold text-primary group-hover:text-gold transition-colors">

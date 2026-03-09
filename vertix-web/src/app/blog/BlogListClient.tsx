@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export interface BlogPostItem {
@@ -12,6 +13,7 @@ export interface BlogPostItem {
   date: string;
   readTime: string;
   author: string;
+  image?: string;
 }
 
 const categories = ["Todos", "Fisioterapia", "Ortopedia", "Prevención", "Deporte"];
@@ -84,7 +86,17 @@ export default function BlogListClient({ posts }: { posts: BlogPostItem[] }) {
                     <div className="absolute top-4 left-4 z-10 bg-gold text-dark text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
                       {post.category}
                     </div>
-                    <div className="w-full h-full bg-secondary/10 group-hover:scale-105 transition-transform duration-500" />
+                    {post.image ? (
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-secondary/10 group-hover:scale-105 transition-transform duration-500" />
+                    )}
                   </div>
                   <div className="flex flex-col gap-2">
                     <h3 className="text-xl font-bold text-primary group-hover:text-gold transition-colors">

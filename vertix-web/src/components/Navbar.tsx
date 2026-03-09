@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { VertixLogo } from "@/components/Icons";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -43,21 +44,8 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
-          <Link href="/" className={`flex items-center gap-2 transition-colors duration-300 ${scrolled ? "text-primary" : isDarkContext ? "text-white" : "text-primary"}`}>
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 48 48"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M24 0.757L47.243 24L24 47.243L0.757 24L24 0.757ZM21 35.757V12.243L9.243 24L21 35.757Z"
-              />
-            </svg>
-            <span className="text-2xl font-bold tracking-tight">VERTIX</span>
+          <Link href="/" className={`flex items-center transition-colors duration-300 ${scrolled ? "text-primary" : isDarkContext ? "text-white" : "text-primary"}`}>
+            <VertixLogo height={30} />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

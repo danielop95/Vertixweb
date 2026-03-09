@@ -17,6 +17,7 @@ export default function BlogPage() {
     date: p.date,
     readTime: p.readTime,
     author: p.author,
+    image: p.image,
   }));
 
   return <BlogListClient posts={items} />;

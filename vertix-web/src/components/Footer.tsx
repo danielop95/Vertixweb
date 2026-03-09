@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IconMapPin, IconPhone, IconClock, IconMail } from "@/components/Icons";
+import { IconMapPin, IconPhone, IconClock, IconMail, VertixLogo } from "@/components/Icons";
 
 export function Footer() {
   return (
@@ -9,21 +9,8 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="md:col-span-5 flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2 text-white">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 48 48"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M24 0.757L47.243 24L24 47.243L0.757 24L24 0.757ZM21 35.757V12.243L9.243 24L21 35.757Z"
-                />
-              </svg>
-              <span className="text-2xl font-bold tracking-tight">VERTIX</span>
+            <Link href="/" className="flex items-center text-white">
+              <VertixLogo height={30} />
             </Link>
             <p className="font-display text-lg text-gold">
               Ciencia, Movimiento y Bienestar

@@ -2,6 +2,7 @@
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 
 const fadeInUp = {
@@ -87,16 +88,19 @@ const historyItems = [
     title: "El inicio de VERTIX",
     text: "Una visión clara: transformar la rehabilitación tradicional en una experiencia verdaderamente personalizada. Nació de la convicción de que cada paciente merece un enfoque único.",
     highlight: "personalizada",
+    img: "/images/historia/origenes.webp",
   },
   {
     title: "Nuestra metodología",
     text: "Desarrollamos un enfoque integral, centrado en encontrar la raíz del problema de cada paciente. Combinamos ciencia, tecnología y humanidad para resultados duraderos.",
     highlight: "raíz del problema",
+    img: "/images/historia/crecimiento.webp",
   },
   {
     title: "El futuro de la salud",
     text: "Innovando constantemente en técnicas de prevención y cuidado deportivo de alto rendimiento. Cada día nos acerca más a nuestra visión de bienestar integral.",
     highlight: "prevención",
+    img: "/images/historia/actualidad.webp",
   },
 ];
 
@@ -154,10 +158,14 @@ export default function NosotrosPage() {
                   {/* Gold dot on timeline */}
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gold z-10 hidden md:block shadow-md" />
 
-                  <div className="w-full md:w-1/2 aspect-video rounded-2xl bg-light overflow-hidden shadow-md">
-                    <div className="w-full h-full bg-secondary/10 flex items-center justify-center text-secondary/30">
-                      Imagen {i + 1}
-                    </div>
+                  <div className="relative w-full md:w-1/2 aspect-video rounded-2xl overflow-hidden shadow-md">
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 450px"
+                    />
                   </div>
                   <div className="w-full md:w-1/2">
                     <h3 className="font-display text-2xl font-bold text-primary mb-4">{item.title}</h3>
@@ -301,8 +309,14 @@ export default function NosotrosPage() {
               <span className="absolute top-4 right-4 px-2 py-0.5 bg-gold/10 text-gold text-[10px] font-bold rounded-full uppercase tracking-wider">
                 Fundadora
               </span>
-              <div className="w-24 h-24 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center text-primary/30 ring-2 ring-gold/30 ring-offset-2">
-                Foto
+              <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 ring-2 ring-gold/30 ring-offset-2 relative">
+                <Image
+                  src="/images/equipo/dra-ingrid-thumb.webp"
+                  alt="Dra. Ingrid Carolina Parra"
+                  fill
+                  className="object-cover"
+                  sizes="96px"
+                />
               </div>
               <h3 className="font-bold text-primary text-lg">Ingrid Carolina Parra</h3>
               <p className="text-secondary text-sm mb-3">Rehabilitadora Deportiva</p>
@@ -401,10 +415,14 @@ function DraIngridSection() {
               </motion.div>
 
               {/* Photo circle */}
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-white/10 shadow-2xl shadow-black/20 ring-4 ring-gold/20">
-                <div className="w-full h-full bg-white/5 flex items-center justify-center text-white/20">
-                  Foto Dra. Ingrid
-                </div>
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl shadow-black/20 ring-4 ring-gold/20 relative">
+                <Image
+                  src="/images/equipo/dra-ingrid.webp"
+                  alt="Dra. Ingrid Carolina Parra — Fundadora de Vertix"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 256px, 320px"
+                />
               </div>
             </motion.div>
 
