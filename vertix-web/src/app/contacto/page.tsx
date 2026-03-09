@@ -37,7 +37,7 @@ export default function ContactoPage() {
 
   return (
     <>
-      <section className="min-h-screen flex flex-col lg:flex-row pt-20">
+      <section className="min-h-screen flex flex-col lg:flex-row pt-20 bg-primary lg:bg-transparent">
         {/* Left - Contact Info */}
         <div className="w-full lg:w-1/2 bg-primary text-white p-10 lg:p-16 flex flex-col justify-center relative overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">

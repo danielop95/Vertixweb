@@ -3,13 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 const services = [
-  { title: "Medicina del Deporte", desc: "Evaluación y tratamiento de lesiones deportivas, optimización del rendimiento y prevención con especialistas de alto nivel.", img: "/images/servicios/medicina-deporte.webp" },
-  { title: "Ortopedia Especializada", desc: "Diagnóstico preciso y soluciones avanzadas para condiciones musculoesqueléticas.", img: "/images/servicios/ortopedia.webp" },
-  { title: "Fisioterapia Avanzada", desc: "Terapias manuales e instrumentadas enfocadas en restaurar la movilidad, aliviar el dolor y recuperar la función óptima.", img: "/images/servicios/fisioterapia.webp" },
-  { title: "Entrenamiento Personalizado", desc: "Programas de acondicionamiento físico diseñados a medida para complementar tu rehabilitación.", img: "/images/servicios/entrenamiento.webp" },
+  { title: "Medicina del Deporte", desc: "Evaluación y tratamiento de lesiones deportivas, optimización del rendimiento y prevención con especialistas de alto nivel." },
+  { title: "Ortopedia Especializada", desc: "Diagnóstico preciso y soluciones avanzadas para condiciones musculoesqueléticas." },
+  { title: "Fisioterapia Avanzada", desc: "Terapias manuales e instrumentadas enfocadas en restaurar la movilidad, aliviar el dolor y recuperar la función óptima." },
+  { title: "Entrenamiento Personalizado", desc: "Programas de acondicionamiento físico diseñados a medida para complementar tu rehabilitación." },
 ];
 
 export default function ServiciosPage() {
@@ -24,7 +23,7 @@ export default function ServiciosPage() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
           <motion.h1
-            className="text-white text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight"
+            className="text-white text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -56,13 +55,6 @@ export default function ServiciosPage() {
                 transition={{ delay: i * 0.1 }}
                 onClick={() => setExpandedIndex(isExpanded ? null : i)}
               >
-                <Image
-                  src={service.img}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
                 <div
                   className={`absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent transition-all duration-300 ${
                     isExpanded ? "from-primary/95" : "group-hover:from-primary/95"
