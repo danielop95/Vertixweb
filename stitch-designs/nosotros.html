@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VERTIX About Us Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#E8C469",
+            "background-light": "#F3F3F1",
+            "background-dark": "#162012",
+            "secondary": "#29514C",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"],
+            "serif": ["Merriweather", "serif"],
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-slate-200 dark:border-b-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-10 py-3 transition-all duration-300">
+<div class="flex items-center gap-4 text-secondary dark:text-primary">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-secondary dark:text-primary text-2xl font-bold leading-tight tracking-[-0.015em]">VERTIX</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Nosotros</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Servicios</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Especialistas</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-secondary text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity shadow-sm">
+<span class="truncate">Agenda tu cita</span>
+</button>
+</div>
+</header>
+<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-[1200px] flex-1 gap-12 lg:gap-20">
+<!-- Hero Section -->
+<div class="@container">
+<div class="@[480px]:p-4">
+<div class="flex min-h-[560px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-3xl items-start justify-end px-6 pb-16 @[480px]:px-12 relative overflow-hidden" data-alt="Rehabilitation center hero image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAjTwPURrCzfMWl8P462p-E7OgNpZSQlQmEppLXQp0qoeMR-Si1yXYCUKObpWJNndVAdQUjLHwU6eCah5SPNKKwkaizgJcKwO7dMAkx5_adKqS9lZj23FHUy07EtVH1KbpYb-RvGqjOp0Ipu1msI9AfYitOdnkQDPAAyEs-U2JJBcmkQbpSAsGv77JxpmY61XUoTcEZ9uid-fIJ1QEdJRuQFsXaA7qPp0fngWq9sez1feULdosjQKfhrprDKneuSteupb8_TeaLA8k7");'>
+<div class="absolute inset-0 bg-secondary/70"></div>
+<div class="relative z-10 flex flex-col gap-4 text-left max-w-2xl">
+<h1 class="text-white font-serif text-4xl leading-tight tracking-[-0.033em] @[480px]:text-6xl @[480px]:leading-tight">
+                  Nacimos de una necesidad real
+                </h1>
+<h2 class="text-white/90 text-lg font-normal leading-relaxed @[480px]:text-xl @[480px]:leading-relaxed max-w-xl">
+                  Rehabilitación médica personalizada y deportiva de alto nivel en Barranquilla, Colombia.
+                </h2>
+<div class="mt-4">
+<button class="flex w-fit cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-secondary text-base font-bold leading-normal tracking-[0.015em] hover:bg-white transition-colors shadow-lg">
+<span class="truncate">Conoce nuestra historia</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- History / Timeline Section -->
+<div class="flex flex-col gap-10 px-4 py-10">
+<div class="flex flex-col gap-4 text-center items-center mb-8">
+<h2 class="text-secondary dark:text-primary tracking-tight text-[32px] font-bold leading-tight @[480px]:text-4xl max-w-[720px] font-serif">
+              Nuestra Historia
+            </h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg font-normal leading-normal max-w-[720px]">
+              Un viaje de dedicación y compromiso con la salud y el bienestar.
+            </p>
+</div>
+<div class="grid grid-cols-[40px_1fr] md:grid-cols-[1fr_60px_1fr] gap-x-4 md:gap-x-8 px-4 max-w-4xl mx-auto">
+<div class="hidden md:flex flex-col items-end py-6 text-right pr-4">
+<img alt="History Image" class="rounded-xl shadow-md w-full h-48 object-cover mb-4" data-alt="History image placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcWGBZAJrW7hJjsq9h4R-c-P5472jtyrH1gCT2n2JfQru85xu0scLtkGyKjfxF0tDjfLxhu1GZ2Vk4aIES2pETkmm6go8l7u5gDJHQw-WgT01XRIHtpo4g3pU2aCOKU4f5aRfTHN1PGZAokepXYIF-EegXEShRAt_iwzx5jRZv7Z_YpETpFFYglh1Nj9wjfZ-mHcT3FYM1awOBXQeyHlOZJPepgM6spPvvRr5lfpwP8zPD0uAHibGf0tYccI7uhTw0uuBt5_mweoiI"/>
+<h3 class="text-secondary dark:text-white text-xl font-bold mb-2 font-serif">El inicio de VERTIX</h3>
+<p class="text-slate-600 dark:text-slate-400">Una visión clara: transformar la rehabilitación tradicional en una experiencia verdaderamente <span class="text-primary font-semibold">personalizada</span>.</p>
+</div>
+<div class="flex flex-col items-center gap-2 pt-3">
+<div class="text-primary bg-white dark:bg-slate-800 rounded-full p-2 shadow-sm relative z-10 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-2xl">history</span>
+</div>
+<div class="w-[2px] bg-primary/30 h-full grow min-h-[100px] md:min-h-[200px]"></div>
+</div>
+<div class="flex flex-1 flex-col py-6 md:hidden">
+<h3 class="text-secondary dark:text-white text-xl font-bold mb-2 font-serif">El inicio de VERTIX</h3>
+<p class="text-slate-600 dark:text-slate-400 mb-4">Una visión clara: transformar la rehabilitación tradicional en una experiencia verdaderamente <span class="text-primary font-semibold">personalizada</span>.</p>
+<img alt="History Image" class="rounded-xl shadow-md w-full h-48 object-cover" data-alt="History image placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7BdRjv3mxgUH5W5AanUNntDaDGdGDsRgtUaqduCP1un9uxijnnHrt-6o0gms3JDKto_FkYsMwvW4JqI9iY5RzI1O4YLHkbqWw_Dprlii33CDee7X23yHHopcZraBMWvVQlshY072KDp98o0qNZQb11JfuN2vdGZUE9qxJ5OFbvQadA_dhz8jlHcN4Hg6GETozwW2S7LZD8SKHgLrVsnmqOnCbJFKVDM3SCNu5gDC9jZiiNdiuDO-ECnyVH3KtZYTX5rLcr1uDKBdX"/>
+</div>
+<div class="hidden md:block"></div>
+<div class="hidden md:block"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-[2px] bg-primary/30 h-8"></div>
+<div class="text-primary bg-white dark:bg-slate-800 rounded-full p-2 shadow-sm relative z-10 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-2xl">group</span>
+</div>
+<div class="w-[2px] bg-primary/30 h-full grow min-h-[100px] md:min-h-[200px]"></div>
+</div>
+<div class="flex flex-1 flex-col py-6 pl-4">
+<img alt="Methodology" class="rounded-xl shadow-md w-full h-48 object-cover mb-4" data-alt="Methodology image placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyGQ9y1yhcSNWv-angjJjpfLleb8C1kD9GGe-iklPNoMf8oipUp6aTFe5SFWylwGtTilPIoO8keg42k1Du61Xj_yZIAjT0OIprehzBtHv0eL2UCEOkx_EOPznI21mp4VOLSgN_9zAVWAA3WFMj_rr1nYz1_dwehwIjV7Ef6kICILYXihhcsmvv7KQ-2vQowJEAqFC3TBCp-ik6du08gNRDb-NpF0SeZT5-gcKNQQV0j5F7kKSVP7jpHMdiFoNt4QeA9M1bjf1kzDbP"/>
+<h3 class="text-secondary dark:text-white text-xl font-bold mb-2 font-serif">Nuestra metodología</h3>
+<p class="text-slate-600 dark:text-slate-400">Desarrollamos un enfoque integral, centrado en las necesidades específicas de cada paciente para una recuperación óptima.</p>
+</div>
+<div class="hidden md:flex flex-col items-end py-6 text-right pr-4">
+<h3 class="text-secondary dark:text-white text-xl font-bold mb-2 font-serif">El futuro de la salud</h3>
+<p class="text-slate-600 dark:text-slate-400">Innovando constantemente en técnicas de <span class="text-primary font-semibold">prevención</span> y cuidado deportivo de alto rendimiento.</p>
+<img alt="Future" class="rounded-xl shadow-md w-full h-48 object-cover mt-4" data-alt="Future vision image placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABCc9ViyOPY8e0Elyy0cwuKTr8e1LrzmBOjSl-LbejTI8bpRXmysJcX9fIts-gL1FZWCleTDVM-u647A0hkQdBisfiCb0PDuGn_ky1-HCi1-K2klmepIvVh0lOQJmaG0aJ5jSzHMHzXdPf6W1u2eTBAM_0omLGtPH85m4U4R_DhbSq-hb2P6Cr2lo8amUuyjKTWK1xuh0BdUOOyfzrg-A75k2cvfnTJZEazajQoAjlhW92ncvRSmuMPzIBX4A41n6OPUJCaZolTDPy"/>
+</div>
+<div class="flex flex-col items-center gap-2 pb-3">
+<div class="w-[2px] bg-primary/30 h-8"></div>
+<div class="text-primary bg-white dark:bg-slate-800 rounded-full p-2 shadow-sm relative z-10 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col py-6 md:hidden">
+<h3 class="text-secondary dark:text-white text-xl font-bold mb-2 font-serif">El futuro de la salud</h3>
+<p class="text-slate-600 dark:text-slate-400 mb-4">Innovando constantemente en técnicas de <span class="text-primary font-semibold">prevención</span> y cuidado deportivo de alto rendimiento.</p>
+<img alt="Future" class="rounded-xl shadow-md w-full h-48 object-cover" data-alt="Future vision image placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN1RpaIJQSdhqBHGlQoq5esCKndDrsNFOwcGi1qrE5VuN-JOAVlnky4iseQUDPCimXKz5TzHDUpvIdNBwZaxa-nIaNfIYs5liQ3Fvy8ijSpZUl0xGLu7qgcw8CDm_2gOYfE9wbB-6XxXl0LmMkyy-AuQ43Th3tYVt2CQSrTq-_Ytv81bz5HvMa16Y4jO2sKfCvp6W90Xpj8ASrgJ3esrLVOPwpga5NJapO3q-DDYkBsHXcQ8z6d7XdXq_5xfV2OCL2s-U-UkgK-n59"/>
+</div>
+<div class="hidden md:block"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
