@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -9,13 +10,15 @@ import { PageTransition } from "@/components/PageTransition";
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
+const rebelton = localFont({
+  src: "../../public/fonts/rebelton-medium.woff2",
+  variable: "--font-rebelton",
   display: "swap",
+  weight: "500",
 });
 
 export const metadata: Metadata = {
@@ -74,7 +77,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${manrope.variable} ${playfair.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${manrope.variable} ${rebelton.variable} font-sans antialiased overflow-x-hidden`}
       >
         <a
           href="#main-content"

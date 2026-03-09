@@ -18,6 +18,11 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
+  // Pages with dark heroes — use light text when not scrolled
+  const darkHeroPages = ["/servicios", "/nosotros", "/blog", "/contacto", "/politica-privacidad", "/politica-datos"];
+  const hasDarkHero = darkHeroPages.includes(pathname);
+  const isDarkContext = hasDarkHero && !scrolled;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -31,14 +36,14 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
           scrolled
             ? "bg-warm-white/95 backdrop-blur-md shadow-sm"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-primary">
+          <Link href="/" className={`flex items-center gap-2 transition-colors duration-300 ${isDarkContext ? "text-white" : "text-primary"}`}>
             <svg
               width="32"
               height="32"
@@ -61,7 +66,9 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`relative font-medium transition-colors hover:text-gold ${
-                  pathname === link.href ? "text-primary" : "text-dark/70"
+                  pathname === link.href
+                    ? isDarkContext ? "text-white" : "text-primary"
+                    : isDarkContext ? "text-white/70" : "text-dark/70"
                 }`}
               >
                 {link.label}
@@ -77,14 +84,18 @@ export function Navbar() {
 
           <Link
             href="/contacto"
-            className="hidden md:flex items-center justify-center h-11 px-6 bg-gold hover:bg-primary text-dark hover:text-white font-bold rounded-full transition-all duration-300"
+            className={`hidden md:flex items-center justify-center h-11 px-6 font-bold rounded-full transition-all duration-300 ${
+              isDarkContext
+                ? "bg-gold hover:bg-gold-hover text-dark"
+                : "bg-gold hover:bg-primary text-dark hover:text-white"
+            }`}
           >
             Agenda tu cita
           </Link>
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-primary"
+            className={`md:hidden p-2 transition-colors duration-300 ${isDarkContext ? "text-white" : "text-primary"}`}
             aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
           >
             <svg

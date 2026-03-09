@@ -12,8 +12,8 @@
   --color-warm-white: #F3F3F1;
   --color-whatsapp: #25D366;
 
-  --font-sans: var(--font-manrope), 'Manrope', 'Montserrat', 'Arial', sans-serif;
-  --font-display: var(--font-playfair), 'Playfair Display', serif;
+  --font-sans: var(--font-manrope), 'Manrope', 'Arial', sans-serif;
+  --font-display: var(--font-rebelton), 'Rebelton', sans-serif;
 
   --radius-card: 1.5rem;
   --radius-organic: 3.75rem;
@@ -46,6 +46,11 @@
 
 .whatsapp-pulse {
   animation: whatsapp-pulse 2s infinite;
+}
+
+.font-display {
+  word-spacing: -0.45em;
+  letter-spacing: -0.03em;
 }
 
 html {

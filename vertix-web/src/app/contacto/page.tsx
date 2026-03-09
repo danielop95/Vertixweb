@@ -37,7 +37,7 @@ export default function ContactoPage() {
 
   return (
     <>
-      <section className="min-h-screen flex flex-col lg:flex-row">
+      <section className="min-h-screen flex flex-col lg:flex-row pt-20">
         {/* Left - Contact Info */}
         <div className="w-full lg:w-1/2 bg-primary text-white p-10 lg:p-16 flex flex-col justify-center relative overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
@@ -49,7 +49,7 @@ export default function ContactoPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              ¿Hablamos?
+              Hablamos?
             </motion.h1>
             <ul className="space-y-6 text-lg">
               <li className="flex items-start gap-4">

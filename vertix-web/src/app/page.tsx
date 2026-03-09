@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRef, useEffect, useState } from "react";
 import { IconMedical, IconUsers, IconClock, IconShieldCheck, IconPhone } from "@/components/Icons";
 
 const fadeInUp = {
@@ -17,44 +16,6 @@ const fadeInUp = {
 const stagger = {
   visible: { transition: { staggerChildren: 0.15 } },
 };
-
-/* ── Animated Counter ── */
-function AnimatedCounter({ target, duration = 1.5 }: { target: number; duration?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    const start = performance.now();
-    function tick(now: number) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / (duration * 1000), 1);
-      setValue(Math.round(progress * target));
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }, [isInView, target, duration]);
-
-  return <span ref={ref}>{value}</span>;
-}
-
-/* ── Fade-in text for non-numeric stats ── */
-function FadeInValue({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  return (
-    <motion.span
-      ref={ref}
-      initial={{ opacity: 0, y: 10 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      {children}
-    </motion.span>
-  );
-}
 
 /* ── SVG Icons derived from V shape ── */
 function VIconLeaf() {
@@ -133,100 +94,182 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative w-full min-h-screen overflow-hidden organic-blob pt-12 pb-24 lg:pt-20 lg:pb-32">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20 min-h-[calc(100vh-80px)]">
-          <motion.div
-            className="w-full lg:w-[55%] flex flex-col gap-8 z-10"
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-          >
-            <motion.h1
-              variants={fadeInUp}
-              className="font-display text-5xl lg:text-7xl font-bold leading-[1.1] text-dark"
-            >
-              Recuperar tu{" "}
-              <span className="text-gradient-gold">MOVILIDAD</span> es
-              recuperar tu VIDA
-            </motion.h1>
-            <motion.p
-              variants={fadeInUp}
-              className="text-lg lg:text-xl text-secondary max-w-lg leading-relaxed"
-            >
-              Rehabilitación integral con ciencia, tecnología y humanidad
-            </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap gap-4 pt-4"
-            >
-              <Link
-                href="/contacto"
-                className="flex items-center justify-center h-14 px-8 bg-primary hover:bg-primary-light text-white font-bold rounded-full transition-all shadow-lg shadow-primary/20 text-lg"
+      <section className="relative w-full min-h-screen overflow-hidden pt-24 lg:pt-28"
+        style={{ background: "linear-gradient(180deg, #e8f0ee 0%, #F3F3F1 50%, #F3F3F1 100%)" }}
+      >
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 relative">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-0 min-h-[calc(100vh-112px)]">
+            {/* Left content */}
+            <div className="w-full lg:w-[55%] flex flex-col gap-8 z-10 py-12 lg:py-0">
+              {/* Trust badges */}
+              <motion.div
+                className="flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
-                Agenda tu valoración gratuita
-              </Link>
-              <Link
-                href="/servicios"
-                className="flex items-center justify-center h-14 px-8 border-2 border-primary/20 text-primary font-bold rounded-full hover:bg-primary/5 transition-colors text-lg"
-              >
-                Conoce nuestros servicios
-              </Link>
-            </motion.div>
-          </motion.div>
+                {[
+                  { icon: <IconShieldCheck size={16} className="text-primary" />, label: "Confianza" },
+                  { icon: <IconMedical size={16} className="text-primary" />, label: "Especialistas" },
+                  { icon: <IconUsers size={16} className="text-primary" />, label: "Atención humana" },
+                ].map((badge, i) => (
+                  <span key={i} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/15 bg-white/60 text-dark text-sm font-medium">
+                    {badge.icon}
+                    {badge.label}
+                  </span>
+                ))}
+              </motion.div>
 
-          <motion.div
-            className="w-full lg:w-[45%] z-10"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
-          >
-            <div className="relative w-full aspect-[4/5] rounded-[60px] overflow-hidden shadow-2xl bg-light">
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent z-10" />
-              <div className="w-full h-full bg-secondary/20 flex items-center justify-center text-secondary/40 text-lg">
-                Imagen: Fisioterapeuta con paciente
-              </div>
+              {/* Heading */}
+              <motion.h1
+                className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] text-dark"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
+              >
+                Recuperar tu{" "}
+                <span className="text-gradient-gold">movilidad,</span>{" "}
+                a un paso de ti
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.p
+                className="text-secondary text-lg lg:text-xl max-w-lg leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                Medicina del deporte, ortopedia y fisioterapia avanzada. Agenda en línea y comienza tu recuperación.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                className="flex flex-wrap items-center gap-4 pt-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <Link
+                  href="/contacto"
+                  className="group inline-flex items-center gap-3 h-14 px-8 bg-primary hover:bg-primary-light text-white font-bold rounded-full transition-colors text-base cursor-pointer"
+                >
+                  Agenda tu cita
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/servicios"
+                  className="group inline-flex items-center gap-3 h-14 px-8 border-2 border-dark/15 text-dark font-bold rounded-full hover:border-primary hover:text-primary transition-colors text-base cursor-pointer"
+                >
+                  Explorar servicios
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </motion.div>
+
+              {/* Floating stats cards */}
+              <motion.div
+                className="flex flex-wrap gap-4 pt-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+              >
+                {/* Doctor card */}
+                <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-2xl p-4 pr-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-white">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <IconMedical size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-dark font-bold text-sm">Dra. Ingrid Parra</p>
+                    <p className="text-secondary text-xs">Rehabilitación Deportiva</p>
+                  </div>
+                </div>
+
+                {/* Stats card */}
+                <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-2xl p-4 pr-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-white">
+                  <div className="w-14 h-14 rounded-xl bg-gold/15 flex items-center justify-center shrink-0">
+                    <IconUsers size={24} className="text-gold-hover" />
+                  </div>
+                  <div>
+                    <p className="text-dark font-bold text-lg leading-none">3</p>
+                    <p className="text-secondary text-xs">Especialidades integradas</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
-        </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <motion.div
-            className="w-0.5 h-12 bg-primary/30 relative overflow-hidden rounded-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-          >
+            {/* Right — Hero image area */}
             <motion.div
-              className="w-full h-3 bg-primary rounded-full"
-              animate={{ y: [0, 36, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </motion.div>
-        </div>
+              className="w-full lg:w-[45%] lg:absolute lg:right-0 lg:bottom-0 lg:top-0 flex items-end justify-center z-0"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
+            >
+              <div className="relative w-full h-[500px] lg:h-full flex items-end justify-center">
+                {/* Soft gradient behind image */}
+                <div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[80%] rounded-full opacity-40"
+                  style={{ background: "radial-gradient(ellipse, rgba(41,81,76,0.15) 0%, transparent 70%)" }}
+                />
+                {/* Image placeholder — replace with actual photo */}
+                <div className="relative w-full max-w-[480px] h-full rounded-t-[40px] overflow-hidden bg-gradient-to-b from-primary/5 to-primary/10">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {/* Stylized V silhouette as placeholder */}
+                    <svg width="200" height="240" viewBox="0 0 200 240" fill="none" className="opacity-10">
+                      <path d="M20 20L100 220L180 20" stroke="#29514C" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-warm-white/80 to-transparent" />
+                </div>
 
-        {/* V Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-          <span className="text-[40vw] font-bold text-primary/[0.04] leading-none">
-            V
-          </span>
+                {/* Floating badge — bottom right */}
+                <motion.div
+                  className="absolute bottom-12 right-0 lg:right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-white z-10"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.3 }}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                      <IconClock size={18} className="text-gold" />
+                    </div>
+                    <div>
+                      <p className="text-dark font-bold text-sm">Horario</p>
+                      <p className="text-secondary text-xs">Lun–Sáb · 7am–6:30pm</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Floating badge — top left */}
+                <motion.div
+                  className="absolute top-20 left-0 lg:-left-8 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-white z-10"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.5 }}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold text-lg">★★★★★</span>
+                    <span className="text-dark text-sm font-bold">Valoración gratuita</span>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* STATS STRIP */}
-      <section className="w-full bg-primary py-12 lg:py-16 relative z-20">
+      {/* PATIENT JOURNEY STRIP */}
+      <section className="w-full bg-primary py-14 lg:py-16 mt-12 lg:mt-16 relative z-20">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x-2 divide-gold/30">
             {[
-              { icon: <IconMedical size={28} className="text-gold" />, label: "Especialidades Integradas", value: "3", isNumeric: true, numericTarget: 3 },
-              { icon: <IconUsers size={28} className="text-gold" />, label: "Atención", value: "Personalizada", isNumeric: false, numericTarget: 0 },
-              { icon: <IconClock size={28} className="text-gold" />, label: "Horario", value: "7am – 6:30pm", isNumeric: false, numericTarget: 0 },
-              { icon: <IconShieldCheck size={28} className="text-gold" />, label: "Valoración", value: "Gratuita", isNumeric: false, numericTarget: 0 },
-            ].map((stat, i) => (
+              { step: "01", label: "Evaluación", desc: "Diagnóstico integral de tu condición" },
+              { step: "02", label: "Plan a medida", desc: "Tratamiento adaptado a tus metas" },
+              { step: "03", label: "Rehabilitación", desc: "Tecnología y terapia de vanguardia" },
+              { step: "04", label: "Prevención", desc: "Seguimiento para evitar recaídas" },
+            ].map((item, i) => (
               <motion.div
                 key={i}
                 className="flex flex-col items-center justify-center text-center px-4 gap-2"
@@ -235,20 +278,14 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <span className="mb-2">{stat.icon}</span>
-                <p className="text-white/80 text-sm lg:text-base font-medium uppercase tracking-wider">
-                  {stat.label}
+                <span className="text-gold font-display text-3xl lg:text-4xl font-bold mb-1">
+                  {item.step}
+                </span>
+                <p className="text-white text-lg lg:text-xl font-bold leading-tight">
+                  {item.label}
                 </p>
-                <p className="text-white text-2xl lg:text-3xl font-bold leading-tight">
-                  {stat.isNumeric ? (
-                    <AnimatedCounter target={stat.numericTarget} />
-                  ) : i === 3 ? (
-                    <span className="text-gold">
-                      <FadeInValue>{stat.value}</FadeInValue>
-                    </span>
-                  ) : (
-                    <FadeInValue>{stat.value}</FadeInValue>
-                  )}
+                <p className="text-white/60 text-sm mt-1">
+                  {item.desc}
                 </p>
               </motion.div>
             ))}
@@ -402,7 +439,7 @@ export default function Home() {
               <span className="text-gold text-6xl opacity-50 mb-8 block">
                 &ldquo;
               </span>
-              <h2 className="font-display italic text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
                 No solo quitamos el dolor.
                 <br />
                 <span className="text-gradient-gold">
@@ -514,7 +551,7 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-primary">
-            ¿Listo para recuperar tu movimiento?
+            Listo para recuperar tu movimiento?
           </h2>
           <p className="text-lg text-secondary">
             Agenda tu valoración gratuita hoy mismo y comencemos a trazar tu

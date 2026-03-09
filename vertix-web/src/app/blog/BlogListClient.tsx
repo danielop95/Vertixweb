@@ -37,7 +37,7 @@ export default function BlogListClient({ posts }: { posts: BlogPostItem[] }) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary py-20 px-6">
+      <section className="bg-primary pt-32 pb-20 px-6">
         <div className="max-w-[1200px] mx-auto text-center">
           <motion.h1
             className="font-display text-5xl font-bold text-white mb-4"

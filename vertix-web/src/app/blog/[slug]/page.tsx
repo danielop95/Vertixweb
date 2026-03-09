@@ -162,7 +162,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
               {/* CTA Card */}
               <div className="bg-primary rounded-2xl p-6 text-white">
-                <h4 className="font-display text-lg font-bold mb-2">¿Necesitas ayuda?</h4>
+                <h4 className="font-display text-lg font-bold mb-2">Necesitas ayuda?</h4>
                 <p className="text-white/70 text-sm mb-5">
                   Nuestro equipo puede evaluar tu caso y diseñar un plan personalizado.
                 </p>

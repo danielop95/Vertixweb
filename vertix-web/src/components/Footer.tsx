@@ -25,7 +25,7 @@ export function Footer() {
               </svg>
               <span className="text-2xl font-bold tracking-tight">VERTIX</span>
             </Link>
-            <p className="font-display text-lg text-gold italic">
+            <p className="font-display text-lg text-gold">
               Ciencia, Movimiento y Bienestar
             </p>
             <p className="text-white/70 max-w-sm">

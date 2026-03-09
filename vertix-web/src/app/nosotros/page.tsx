@@ -104,7 +104,7 @@ export default function NosotrosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-primary/70 z-10" />
         <div className="absolute inset-0 bg-light" />
         <motion.div
@@ -431,7 +431,7 @@ function DraIngridSection() {
               <p className="text-white/60 text-lg mb-8">Rehabilitadora Deportiva</p>
 
               <motion.blockquote
-                className="relative font-display italic text-xl md:text-2xl text-white/85 leading-relaxed mb-10 max-w-xl"
+                className="relative font-display text-xl md:text-2xl text-white/85 leading-relaxed mb-10 max-w-xl"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.6, duration: 1 }}

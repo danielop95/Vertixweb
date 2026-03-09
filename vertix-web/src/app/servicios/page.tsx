@@ -17,7 +17,7 @@ export default function ServiciosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-primary py-24 md:py-32 px-6 overflow-hidden flex items-center justify-center min-h-[50vh]">
+      <section className="relative bg-primary pt-36 md:pt-40 pb-24 md:pb-32 px-6 overflow-hidden flex items-center justify-center min-h-[50vh]">
         <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none text-white font-bold text-[40vw] leading-none select-none">
           V
         </div>
@@ -134,7 +134,7 @@ export default function ServiciosPage() {
       <section className="bg-warm-white py-24 px-6 text-center border-t border-primary/5">
         <div className="max-w-3xl mx-auto flex flex-col items-center gap-8">
           <h2 className="text-primary text-4xl md:text-5xl font-display font-bold">
-            ¿No sabes qué servicio necesitas?
+            No sabes qué servicio necesitas?
           </h2>
           <p className="text-secondary text-lg">
             Permítenos orientarte. Nuestro equipo evaluará tu caso para recomendarte el mejor camino.
