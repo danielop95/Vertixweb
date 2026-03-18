@@ -20,7 +20,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   // Pages with dark heroes — use light text when not scrolled
-  const darkHeroPages = ["/servicios", "/nosotros", "/blog", "/contacto", "/politica-privacidad", "/politica-datos"];
+  const darkHeroPages = ["/", "/servicios", "/nosotros", "/blog", "/contacto", "/politica-privacidad", "/politica-datos"];
   const hasDarkHero = darkHeroPages.includes(pathname);
   const isDarkContext = hasDarkHero && !scrolled;
 
@@ -74,10 +74,10 @@ export function Navbar() {
             href="/contacto"
             className={`hidden md:flex items-center justify-center h-11 px-6 font-bold rounded-full transition-all duration-300 ${
               scrolled
-                ? "bg-primary hover:bg-gold text-white hover:text-dark"
+                ? "bg-gold hover:bg-gold-hover text-dark"
                 : isDarkContext
                   ? "bg-gold hover:bg-gold-hover text-dark"
-                  : "bg-gold hover:bg-primary text-dark hover:text-white"
+                  : "bg-gold hover:bg-gold-hover text-dark"
             }`}
           >
             Agenda tu cita

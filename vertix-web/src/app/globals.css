@@ -1,41 +1,41 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #29514C;
-  --color-primary-light: #3b6a65;
-  --color-primary-dark: #1a3532;
-  --color-secondary: #62675A;
-  --color-gold: #E8C469;
-  --color-gold-hover: #d4b055;
-  --color-dark: #292927;
+  --color-primary: #616759;
+  --color-primary-light: #7a8570;
+  --color-primary-dark: #4a5248;
+  --color-secondary: #949F86;
+  --color-gold: #ECC794;
+  --color-gold-hover: #d4b37a;
+  --color-dark: #2C2C2A;
   --color-light: #E0E0E0;
-  --color-warm-white: #F3F3F1;
+  --color-warm-white: #F3F3F0;
   --color-whatsapp: #25D366;
 
   --font-sans: var(--font-manrope), 'Manrope', 'Arial', sans-serif;
   --font-display: var(--font-rebelton), 'Rebelton', sans-serif;
 
-  --radius-card: 1.5rem;
+  --radius-card: 1rem;
   --radius-organic: 3.75rem;
   --radius-pill: 9999px;
 }
 
 :root {
-  --color-background: #F3F3F1;
-  --color-foreground: #292927;
-  --gradient-gold: linear-gradient(135deg, #FCF0AD, #F6DB8A, #BF8E4D);
+  --color-background: #F3F3F0;
+  --color-foreground: #2C2C2A;
+  --gradient-gold: linear-gradient(135deg, #F5E6C8, #ECC794, #d4b37a);
 }
 
 .text-gradient-gold {
-  background: linear-gradient(90deg, #E8C469 0%, #BF8E4D 100%);
+  background: linear-gradient(90deg, #ECC794 0%, #d4b37a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .organic-blob {
-  background-image: radial-gradient(circle at 30% 30%, rgba(232, 196, 105, 0.08) 0%, transparent 60%),
-                    radial-gradient(circle at 70% 70%, rgba(41, 81, 76, 0.06) 0%, transparent 50%);
+  background-image: radial-gradient(circle at 30% 30%, rgba(236, 199, 148, 0.08) 0%, transparent 60%),
+                    radial-gradient(circle at 70% 70%, rgba(97, 103, 89, 0.06) 0%, transparent 50%);
 }
 
 @keyframes whatsapp-pulse {
@@ -65,7 +65,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid #E8C469;
+  outline: 2px solid #ECC794;
   outline-offset: 2px;
 }
 
@@ -87,7 +87,7 @@ body {
 .spinner-gold {
   width: 24px;
   height: 24px;
-  border: 3px solid #E8C469;
+  border: 3px solid #ECC794;
   border-top-color: transparent;
   border-radius: 50%;
   animation: spin-gold 0.8s linear infinite;
@@ -102,7 +102,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: #29514C;
+  background: #616759;
   transform: translateX(-100%);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;

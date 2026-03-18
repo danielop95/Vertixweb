@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { IconMedical, IconUsers, IconClock, IconShieldCheck, IconPhone } from "@/components/Icons";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -14,557 +14,636 @@ const fadeInUp = {
 };
 
 const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
-/* ── SVG Icons derived from V shape ── */
-function VIconLeaf() {
+/* ── Arrow icon ── */
+function ArrowUpRight({ className = "" }: { className?: string }) {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M14 4L8 22C8 22 10 18 14 14C18 10 22 9 22 9L14 4Z"
-        stroke="#29514C"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M14 14V24"
-        stroke="#29514C"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M10 20C12 18 14 17 14 14"
-        stroke="#29514C"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={className}>
+      <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function VIconScience() {
+/* ── Star icon ── */
+function StarIcon() {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M10 4L14 18L18 4"
-        stroke="#29514C"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8 22H20"
-        stroke="#29514C"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <circle cx="14" cy="20" r="2" stroke="#29514C" strokeWidth="1.5" />
-      <circle cx="9" cy="12" r="1.5" stroke="#29514C" strokeWidth="1.5" />
-      <circle cx="19" cy="12" r="1.5" stroke="#29514C" strokeWidth="1.5" />
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8 1l2.2 4.5L15 6.3l-3.5 3.4.8 4.8L8 12.3 3.7 14.5l.8-4.8L1 6.3l4.8-.8L8 1z" />
     </svg>
   );
 }
 
-function VIconShield() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M14 3L5 7V13C5 19 9 23.5 14 25C19 23.5 23 19 23 13V7L14 3Z"
-        stroke="#29514C"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M11 11L14 18L17 11"
-        stroke="#29514C"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const services = [
+  {
+    title: "Medicina del Deporte",
+    desc: "Evaluación y tratamiento de lesiones deportivas para atletas de todos los niveles.",
+    image: "/images/servicios/medicina-deporte.jpg",
+  },
+  {
+    title: "Ortopedia Especializada",
+    desc: "Diagnóstico preciso de condiciones musculoesqueléticas.",
+    image: "/images/servicios/ortopedia.jpg",
+  },
+  {
+    title: "Fisioterapia Avanzada",
+    desc: "Terapias manuales e instrumentales de vanguardia.",
+    image: "/images/servicios/fisioterapia.jpg",
+  },
+  {
+    title: "Entrenamiento Personalizado",
+    desc: "Programas de acondicionamiento y prevención de lesiones.",
+    image: "/images/servicios/entrenamiento.jpg",
+  },
+];
 
-const vIcons = [<VIconLeaf key="leaf" />, <VIconScience key="science" />, <VIconShield key="shield" />];
+const testimonials = [
+  {
+    name: "Carlos M.",
+    detail: "Corredor de maratón",
+    quote: "Después de meses sin poder correr, volví a entrenar gracias al equipo de VERTIX.",
+  },
+  {
+    name: "María L.",
+    detail: "Paciente de fisioterapia",
+    quote: "El trato humano y profesional me hizo sentir en confianza desde la primera consulta.",
+  },
+  {
+    name: "Andrés R.",
+    detail: "Futbolista amateur",
+    quote: "Excelente diagnóstico y un plan de rehabilitación que realmente funcionó.",
+  },
+];
+
+const blogPosts = [
+  {
+    cat: "Ortopedia",
+    title: "Cuándo consultar a un ortopedista",
+    readTime: "5 min lectura",
+    image: "/images/blog/blog-1.jpg",
+    slug: "/blog/cuando-consultar-ortopedista",
+  },
+  {
+    cat: "Deporte",
+    title: "Nutrición para la recuperación deportiva",
+    readTime: "6 min lectura",
+    image: "/images/blog/blog-2.jpg",
+    slug: "/blog/nutricion-recuperacion-deportiva",
+  },
+  {
+    cat: "Fisioterapia",
+    title: "Importancia de la fisioterapia preventiva",
+    readTime: "4 min lectura",
+    image: "/images/blog/blog-3.jpg",
+    slug: "/blog/importancia-fisioterapia-preventiva",
+  },
+];
+
+const values = [
+  "Escucha activa",
+  "Ciencia + Humanidad",
+  "Prevención inteligente",
+  "Atención integral",
+];
 
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative w-full min-h-screen overflow-hidden pt-24 lg:pt-28"
-        style={{ background: "linear-gradient(180deg, #e8f0ee 0%, #F3F3F1 50%, #F3F3F1 100%)" }}
-      >
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 relative">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-0 min-h-[calc(100vh-112px)]">
-            {/* Left content */}
-            <div className="w-full lg:w-[55%] flex flex-col gap-8 z-10 py-12 lg:py-0">
-              {/* Trust badges */}
-              <motion.div
-                className="flex flex-wrap gap-3"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                {[
-                  { icon: <IconShieldCheck size={16} className="text-primary" />, label: "Confianza" },
-                  { icon: <IconMedical size={16} className="text-primary" />, label: "Especialistas" },
-                  { icon: <IconUsers size={16} className="text-primary" />, label: "Atención humana" },
-                ].map((badge, i) => (
-                  <span key={i} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/15 bg-white/60 text-dark text-sm font-medium">
-                    {badge.icon}
-                    {badge.label}
-                  </span>
-                ))}
+      {/* ═══════════════════════════════════════════
+          SECTION 1: HERO CINEMATICO FULL-BLEED
+          ═══════════════════════════════════════════ */}
+      <section className="relative w-full min-h-screen flex items-center overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 bg-[#2C2C2A]">
+          <Image
+            src="/images/hero/hero-bg.jpg"
+            alt="Fisioterapia profesional en clínica moderna"
+            fill
+            priority
+            quality={85}
+            className="object-cover"
+          />
+          {/* Multi-layer overlay — verde musgo más marcado */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(97,103,89,0.95)] via-[rgba(97,103,89,0.8)] to-[rgba(97,103,89,0.45)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(97,103,89,0.6)] via-[rgba(97,103,89,0.1)] to-[rgba(97,103,89,0.4)]" />
+        </div>
+
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full z-[1] pointer-events-none overflow-hidden">
+          {/* Gold accent line */}
+          <div className="absolute top-[20%] left-[8%] w-px h-[200px] bg-gradient-to-b from-transparent via-gold/30 to-transparent hidden lg:block" />
+          {/* Subtle V watermark */}
+          <div className="absolute right-[8%] top-1/2 -translate-y-1/2 opacity-[0.04] hidden lg:block">
+            <span className="font-display text-[400px] text-warm-white leading-none select-none">V</span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 xl:px-28 py-32 lg:py-0">
+          <div className="flex flex-col items-start gap-12 min-h-screen lg:py-40 justify-center">
+            {/* Left — Main content */}
+            <motion.div
+              className="max-w-[600px] flex flex-col gap-7"
+              initial="hidden"
+              animate="visible"
+              variants={stagger}
+            >
+              {/* Gold divider + label */}
+              <motion.div variants={fadeInUp} className="flex items-center gap-4">
+                <div className="w-10 h-px bg-gold" />
+                <span className="text-gold text-[11px] font-semibold uppercase tracking-[4px]">
+                  Ciencia, Movimiento y Bienestar
+                </span>
               </motion.div>
 
-              {/* Heading */}
               <motion.h1
-                className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.08] text-dark"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
+                variants={fadeInUp}
+                className="font-display text-[42px] md:text-[60px] lg:text-[72px] font-bold leading-[1.05] text-warm-white"
               >
                 Recuperar tu{" "}
-                <span className="text-gradient-gold">movilidad,</span>{" "}
+                <span className="text-gold">movilidad,</span>{" "}
                 a un paso de ti
               </motion.h1>
 
-              {/* Subtitle */}
               <motion.p
-                className="text-secondary text-lg lg:text-xl max-w-lg leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                variants={fadeInUp}
+                className="text-warm-white/60 text-base lg:text-lg leading-relaxed max-w-lg"
               >
-                Medicina del deporte, ortopedia y fisioterapia avanzada. Agenda en línea y comienza tu recuperación.
+                Medicina del deporte, ortopedia y fisioterapia avanzada en Barranquilla. Tu recuperación comienza aquí.
               </motion.p>
 
               {/* CTAs */}
-              <motion.div
-                className="flex flex-wrap items-center gap-4 pt-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
+              <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-5 pt-4">
                 <Link
                   href="/contacto"
-                  className="group inline-flex items-center gap-3 h-14 px-8 bg-primary hover:bg-primary-light text-white font-bold rounded-full transition-colors text-base cursor-pointer"
+                  className="group inline-flex items-center gap-3 h-[58px] px-10 bg-gold hover:bg-gold-hover text-dark font-bold rounded-full transition-colors text-base"
                 >
                   Agenda tu cita
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
                 <Link
                   href="/servicios"
-                  className="group inline-flex items-center gap-3 h-14 px-8 border-2 border-dark/15 text-dark font-bold rounded-full hover:border-primary hover:text-primary transition-colors text-base cursor-pointer"
+                  className="group inline-flex items-center gap-3 h-[58px] px-10 border border-warm-white/30 hover:border-warm-white/60 text-warm-white font-semibold rounded-full transition-colors text-base"
                 >
                   Explorar servicios
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <ArrowUpRight className="opacity-60 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </motion.div>
 
-              {/* Floating stats cards */}
+              {/* Trust indicators */}
               <motion.div
-                className="flex flex-wrap gap-4 pt-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 }}
+                variants={fadeInUp}
+                className="flex items-center gap-6 pt-6 border-t border-warm-white/10 mt-2"
               >
-                {/* Doctor card */}
-                <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-2xl p-4 pr-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-white">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <IconMedical size={24} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-dark font-bold text-sm">Dra. Ingrid Parra</p>
-                    <p className="text-secondary text-xs">Rehabilitación Deportiva</p>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-gold text-sm">★★★★★</span>
+                  <span className="text-warm-white/50 text-xs">5.0 valoración</span>
                 </div>
-
-                {/* Stats card */}
-                <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-2xl p-4 pr-6 shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-white">
-                  <div className="w-14 h-14 rounded-xl bg-gold/15 flex items-center justify-center shrink-0">
-                    <IconUsers size={24} className="text-gold-hover" />
-                  </div>
-                  <div>
-                    <p className="text-dark font-bold text-lg leading-none">3</p>
-                    <p className="text-secondary text-xs">Especialidades integradas</p>
-                  </div>
-                </div>
+                <div className="w-px h-4 bg-warm-white/15" />
+                <span className="text-warm-white/50 text-xs">Lun–Sáb · 7am–6:30pm</span>
+                <div className="w-px h-4 bg-warm-white/15 hidden md:block" />
+                <span className="text-warm-white/50 text-xs hidden md:block">4 especialidades</span>
               </motion.div>
-            </div>
+            </motion.div>
+          </div>
+        </div>
 
-            {/* Right — Hero image area */}
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-warm-white to-transparent z-10" />
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 2: INTRO DRA. INGRID + VALORES
+          ═══════════════════════════════════════════ */}
+      <section className="py-14 lg:py-20 bg-warm-white">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* Photo */}
             <motion.div
-              className="w-full lg:w-[45%] lg:absolute lg:right-0 lg:bottom-0 lg:top-0 flex items-end justify-center z-0"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
+              className="w-[240px] lg:w-[280px] shrink-0"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="relative w-full h-[500px] lg:h-full flex items-end justify-center">
-                {/* Soft gradient behind image */}
-                <div
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[80%] rounded-full opacity-40"
-                  style={{ background: "radial-gradient(ellipse, rgba(41,81,76,0.15) 0%, transparent 70%)" }}
+              <div className="relative w-full h-[300px] lg:h-[340px] overflow-hidden" style={{ borderRadius: "200px 200px 24px 24px" }}>
+                <Image
+                  src="/images/team/dra-ingrid.png"
+                  alt="Dra. Ingrid Carolina Parra — Rehabilitadora Deportiva"
+                  fill
+                  className="object-cover"
                 />
-                {/* Image placeholder — replace with actual photo */}
-                <div className="relative w-full max-w-[480px] h-full rounded-t-[40px] overflow-hidden bg-gradient-to-b from-primary/5 to-primary/10">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {/* Stylized V silhouette as placeholder */}
-                    <svg width="200" height="240" viewBox="0 0 200 240" fill="none" className="opacity-10">
-                      <path d="M20 20L100 220L180 20" stroke="#29514C" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-warm-white/80 to-transparent" />
-                </div>
-
-                {/* Floating badge — bottom right */}
-                <motion.div
-                  className="absolute bottom-12 right-0 lg:right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-white z-10"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.3 }}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                      <IconClock size={18} className="text-gold" />
-                    </div>
-                    <div>
-                      <p className="text-dark font-bold text-sm">Horario</p>
-                      <p className="text-secondary text-xs">Lun–Sáb · 7am–6:30pm</p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Floating badge — top left */}
-                <motion.div
-                  className="absolute top-20 left-0 lg:-left-8 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-white z-10"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.5 }}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-gold text-lg">★★★★★</span>
-                    <span className="text-dark text-sm font-bold">Valoración gratuita</span>
-                  </div>
-                </motion.div>
               </div>
+            </motion.div>
+
+            {/* Text */}
+            <motion.div
+              className="flex-1 text-center lg:text-left"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="text-secondary text-[11px] font-semibold uppercase tracking-[3px]">
+                Conoce a tu especialista
+              </span>
+              <h2 className="font-display text-3xl lg:text-4xl text-primary mt-3 leading-[1.2]">
+                Dra. Ingrid Carolina <span className="text-gold">Parra</span>
+              </h2>
+              <p className="text-gold font-semibold text-[13px] mt-2">
+                Rehabilitadora Deportiva · Directora Clínica
+              </p>
+              <p className="text-primary/80 text-sm lg:text-base leading-relaxed mt-5 max-w-lg mx-auto lg:mx-0">
+                Especialista en rehabilitación deportiva con enfoque integral. Fundadora de VERTIX con la misión de transformar la recuperación de cada paciente combinando ciencia, tecnología y un trato profundamente humano.
+              </p>
+
+              {/* Value tags */}
+              <motion.div
+                className="flex flex-wrap justify-center lg:justify-start gap-2 mt-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={stagger}
+              >
+                {values.map((val) => (
+                  <motion.span
+                    key={val}
+                    variants={fadeInUp}
+                    className="text-[11px] font-medium text-primary border border-secondary/40 rounded-full px-4 py-1.5"
+                  >
+                    {val}
+                  </motion.span>
+                ))}
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* PATIENT JOURNEY STRIP */}
-      <section className="w-full bg-primary py-14 lg:py-16 mt-12 lg:mt-16 relative z-20">
+      {/* ═══════════════════════════════════════════
+          SECTION 3: SERVICIOS — BENTO EDITORIAL
+          ═══════════════════════════════════════════ */}
+      <section className="pt-4 pb-16 lg:pb-24 bg-warm-white">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x-2 divide-gold/30">
-            {[
-              { step: "01", label: "Evaluación", desc: "Diagnóstico integral de tu condición" },
-              { step: "02", label: "Plan a medida", desc: "Tratamiento adaptado a tus metas" },
-              { step: "03", label: "Rehabilitación", desc: "Tecnología y terapia de vanguardia" },
-              { step: "04", label: "Prevención", desc: "Seguimiento para evitar recaídas" },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                className="flex flex-col items-center justify-center text-center px-4 gap-2"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <span className="text-gold font-display text-3xl lg:text-4xl font-bold mb-1">
-                  {item.step}
-                </span>
-                <p className="text-white text-lg lg:text-xl font-bold leading-tight">
-                  {item.label}
-                </p>
-                <p className="text-white/60 text-sm mt-1">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY VERTIX */}
-      <section className="py-24 bg-warm-white">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          {/* Header — left aligned with gold line */}
           <motion.div
-            className="text-center max-w-2xl mx-auto mb-16"
+            className="flex items-start gap-6 mb-14"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-primary mb-6">
-              Un enfoque diferente al cuidado de tu cuerpo
-            </h2>
-            <p className="text-secondary text-lg">
-              En VERTIX no tratamos síntomas, tratamos personas.
-            </p>
+            <div className="w-px h-16 bg-gold hidden lg:block mt-2" />
+            <div>
+              <p className="text-gold text-[11px] font-semibold uppercase tracking-[3px] mb-3">
+                Lo que hacemos por ti
+              </p>
+              <h2 className="font-display text-[32px] lg:text-[44px] text-primary leading-[1.1]">
+                Nuestras especialidades
+              </h2>
+            </div>
           </motion.div>
 
+          {/* Bento grid — asymmetric layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5">
+            {/* Card 1 — Large, spans 7 cols */}
+            <motion.div
+              className="lg:col-span-7 relative overflow-hidden group cursor-pointer h-[280px] lg:h-[420px]"
+              style={{ borderRadius: "24px 24px 24px 80px" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Image src={services[0].image} alt={services[0].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(97,103,89,0.9)] via-[rgba(97,103,89,0.4)] to-[rgba(97,103,89,0.1)]" />
+              <div className="absolute top-6 left-7">
+                <span className="font-display text-[64px] lg:text-[80px] text-warm-white/10 leading-none">01</span>
+              </div>
+              <div className="absolute inset-0 p-7 lg:p-10 flex flex-col justify-end">
+                <div className="w-10 h-0.5 bg-gold mb-4 transition-all duration-500 group-hover:w-16" />
+                <h3 className="font-display text-2xl lg:text-3xl text-warm-white">{services[0].title}</h3>
+                <p className="text-warm-white/60 text-sm mt-2 max-w-md opacity-100 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
+                  {services[0].desc}
+                </p>
+                <Link href="/servicios" className="inline-flex items-center gap-2 text-gold text-sm font-semibold mt-4 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Conocer más <ArrowUpRight />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 2 — Medium, spans 5 cols */}
+            <motion.div
+              className="lg:col-span-5 relative overflow-hidden group cursor-pointer h-[280px] lg:h-[420px]"
+              style={{ borderRadius: "24px 80px 24px 24px" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Image src={services[1].image} alt={services[1].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(97,103,89,0.9)] via-[rgba(97,103,89,0.4)] to-[rgba(97,103,89,0.1)]" />
+              <div className="absolute top-6 right-7">
+                <span className="font-display text-[64px] lg:text-[80px] text-warm-white/10 leading-none">02</span>
+              </div>
+              <div className="absolute inset-0 p-7 lg:p-10 flex flex-col justify-end">
+                <div className="w-10 h-0.5 bg-gold mb-4 transition-all duration-500 group-hover:w-16" />
+                <h3 className="font-display text-2xl lg:text-3xl text-warm-white">{services[1].title}</h3>
+                <p className="text-warm-white/60 text-sm mt-2 max-w-sm opacity-100 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
+                  {services[1].desc}
+                </p>
+                <Link href="/servicios" className="inline-flex items-center gap-2 text-gold text-sm font-semibold mt-4 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Conocer más <ArrowUpRight />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 3 — Medium, spans 5 cols */}
+            <motion.div
+              className="lg:col-span-5 relative overflow-hidden group cursor-pointer h-[280px] lg:h-[380px]"
+              style={{ borderRadius: "80px 24px 24px 24px" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Image src={services[2].image} alt={services[2].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(97,103,89,0.9)] via-[rgba(97,103,89,0.4)] to-[rgba(97,103,89,0.1)]" />
+              <div className="absolute top-6 left-7">
+                <span className="font-display text-[64px] lg:text-[80px] text-warm-white/10 leading-none">03</span>
+              </div>
+              <div className="absolute inset-0 p-7 lg:p-10 flex flex-col justify-end">
+                <div className="w-10 h-0.5 bg-gold mb-4 transition-all duration-500 group-hover:w-16" />
+                <h3 className="font-display text-2xl lg:text-3xl text-warm-white">{services[2].title}</h3>
+                <p className="text-warm-white/60 text-sm mt-2 max-w-sm opacity-100 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
+                  {services[2].desc}
+                </p>
+                <Link href="/servicios" className="inline-flex items-center gap-2 text-gold text-sm font-semibold mt-4 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Conocer más <ArrowUpRight />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 4 — Large, spans 7 cols */}
+            <motion.div
+              className="lg:col-span-7 relative overflow-hidden group cursor-pointer h-[280px] lg:h-[380px]"
+              style={{ borderRadius: "24px 24px 80px 24px" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Image src={services[3].image} alt={services[3].title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(97,103,89,0.9)] via-[rgba(97,103,89,0.4)] to-[rgba(97,103,89,0.1)]" />
+              <div className="absolute top-6 right-7">
+                <span className="font-display text-[64px] lg:text-[80px] text-warm-white/10 leading-none">04</span>
+              </div>
+              <div className="absolute inset-0 p-7 lg:p-10 flex flex-col justify-end">
+                <div className="w-10 h-0.5 bg-gold mb-4 transition-all duration-500 group-hover:w-16" />
+                <h3 className="font-display text-2xl lg:text-3xl text-warm-white">{services[3].title}</h3>
+                <p className="text-warm-white/60 text-sm mt-2 max-w-md opacity-100 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
+                  {services[3].desc}
+                </p>
+                <Link href="/servicios" className="inline-flex items-center gap-2 text-gold text-sm font-semibold mt-4 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Conocer más <ArrowUpRight />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Bottom CTA */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="flex justify-center mt-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={stagger}
+            variants={fadeInUp}
           >
-            {[
-              {
-                title: "Escucha activa",
-                desc: "No tratamos síntomas, llegamos a la raíz del problema.",
-                iconIdx: 0,
-              },
-              {
-                title: "Ciencia + Humanidad",
-                desc: "Evidencia científica con trato empático y personalizado.",
-                iconIdx: 1,
-              },
-              {
-                title: "Prevención inteligente",
-                desc: "Te educamos para que no vuelvas a lesionarte.",
-                iconIdx: 2,
-              },
-            ].map((card, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="bg-white rounded-[24px] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-primary/5 hover:border-gold hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                  {vIcons[card.iconIdx]}
-                </div>
-                <h3 className="text-2xl font-bold text-primary mb-4">
-                  {card.title}
-                </h3>
-                <p className="text-secondary leading-relaxed">{card.desc}</p>
-              </motion.div>
-            ))}
+            <Link
+              href="/servicios"
+              className="inline-flex items-center gap-3 h-[52px] px-8 border border-primary/30 hover:border-gold hover:text-gold text-primary font-semibold rounded-full transition-colors text-sm"
+            >
+              Ver todos los servicios
+              <ArrowUpRight />
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* SERVICES PREVIEW — 2x2 Grid */}
-      <section className="py-24 bg-white">
+      {/* ═══════════════════════════════════════════
+          SECTION 4: FILOSOFÍA — IMAGEN + TEXTO
+          ═══════════════════════════════════════════ */}
+      <section className="py-16 lg:py-24 bg-primary">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <span className="text-gold font-bold tracking-wider uppercase text-sm mb-2 block">
-                Nuestras Especialidades
-              </span>
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-primary">
-                Lo que hacemos por ti
-              </h2>
-            </div>
-            <Link
-              href="/servicios"
-              className="inline-flex items-center justify-center border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-full h-12 px-6 font-bold transition-all"
-            >
-              Ver todos los servicios →
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Medicina del Deporte",
-                desc: "Optimización del rendimiento y prevención de lesiones para atletas de todos los niveles.",
-              },
-              {
-                title: "Ortopedia Especializada",
-                desc: "Diagnóstico y tratamiento preciso de afecciones musculoesqueléticas.",
-              },
-              {
-                title: "Fisioterapia",
-                desc: "Rehabilitación funcional basada en evidencia para recuperar tu movimiento.",
-              },
-              {
-                title: "Entrenamiento",
-                desc: "Programas personalizados para fortalecer tu cuerpo y prevenir futuras lesiones.",
-              },
-            ].map((service, i) => (
-              <motion.div
-                key={i}
-                className="relative rounded-[32px] overflow-hidden group cursor-pointer bg-light h-[400px]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                {/* Image bg placeholder */}
-                <div className="absolute inset-0 bg-secondary/10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/40 to-transparent opacity-90 md:opacity-100 md:group-hover:opacity-90 transition-opacity" />
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-white/80 max-w-sm opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                    {service.desc}
-                  </p>
-                  <Link
-                    href="/servicios"
-                    className="text-gold font-bold mt-3 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75"
-                  >
-                    Conocer más →
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PHILOSOPHY — Asymmetric with image */}
-      <section className="py-32 bg-warm-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-l-[100px] -z-10" />
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            {/* Text — left 60% */}
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+            {/* Image */}
             <motion.div
-              className="w-full lg:w-[60%]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="w-full lg:w-[55%]"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-gold text-6xl opacity-50 mb-8 block">
-                &ldquo;
-              </span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
-                No solo quitamos el dolor.
-                <br />
-                <span className="text-gradient-gold">
-                  Restauramos el movimiento.
-                </span>
-              </h2>
-              <div className="mt-12 w-24 h-1 bg-gold rounded-full" />
+              <div className="relative w-full h-[300px] lg:h-[400px] overflow-hidden" style={{ borderRadius: "24px 24px 120px 24px" }}>
+                <Image
+                  src="/images/filosofia/filosofia-bg.png"
+                  alt="Filosofía VERTIX — atención personalizada"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </motion.div>
 
-            {/* Image — right 40% */}
+            {/* Text */}
             <motion.div
-              className="w-full lg:w-[40%]"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              className="w-full lg:w-[45%]"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div
-                className="w-full aspect-[3/4] bg-secondary/10 overflow-hidden shadow-xl"
-                style={{ borderRadius: "60% 40% 50% 50% / 50% 60% 40% 50%" }}
-              >
-                <div className="w-full h-full flex items-center justify-center text-secondary/40 text-base">
-                  Imagen: Filosofía Vertix
-                </div>
+              <span className="font-display text-[64px] text-gold leading-[0.5] block mb-4">
+                &ldquo;
+              </span>
+              <h2 className="font-display text-2xl lg:text-[28px] text-warm-white leading-[1.3]">
+                No tratamos síntomas,
+                <br />
+                tratamos <span className="text-gold">personas</span>
+              </h2>
+              <p className="text-warm-white/65 text-sm leading-[1.7] mt-6">
+                En VERTIX creemos que cada paciente merece un enfoque integral.
+                Combinamos ciencia, empatía y tecnología para devolverte lo que
+                más importa: tu movimiento.
+              </p>
+              <div className="mt-8">
+                <p className="text-gold font-semibold text-[13px]">
+                  — Dra. Ingrid Carolina Parra
+                </p>
+                <p className="text-warm-white/50 text-[13px] mt-1">
+                  Rehabilitadora Deportiva | Directora Clínica
+                </p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* BLOG PREVIEW */}
-      <section className="py-24 bg-white">
+      {/* ═══════════════════════════════════════════
+          SECTION 5: TESTIMONIOS DE PACIENTES
+          ═══════════════════════════════════════════ */}
+      <section className="py-16 lg:py-20 bg-warm-white">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <h2 className="font-display text-4xl font-bold text-primary">
-              Aprende a moverte mejor
-            </h2>
-            <Link
-              href="/blog"
-              className="text-primary font-bold flex items-center gap-2 hover:text-gold transition-colors"
-            >
-              Ver todos los artículos →
-            </Link>
-          </div>
+          <motion.h2
+            className="font-display text-[32px] lg:text-[40px] text-primary text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            Lo que dicen nuestros pacientes
+          </motion.h2>
 
-          {/* Mobile: horizontal scroll / Desktop: grid */}
-          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-x-visible pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0">
-            {[
-              {
-                cat: "Prevención",
-                title: "Cómo evitar lesiones comunes al empezar a correr",
-                excerpt:
-                  "Una guía completa para principiantes sobre biomecánica básica y preparación física.",
-              },
-              {
-                cat: "Recuperación",
-                title: "El rol del descanso activo en tu terapia",
-                excerpt:
-                  "Por qué detenerse completamente a veces es contraproducente para curar ciertas lesiones.",
-              },
-              {
-                cat: "Nutrición",
-                title: "Alimentos que reducen la inflamación articular",
-                excerpt:
-                  "Complementa tu tratamiento de fisioterapia con estas recomendaciones nutricionales clave.",
-              },
-            ].map((post, i) => (
-              <motion.article
-                key={i}
-                className="min-w-[280px] snap-center flex flex-col gap-5 group cursor-pointer md:min-w-0"
+          <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-x-visible pb-4 lg:pb-0 -mx-6 px-6 lg:mx-0 lg:px-0 [&::-webkit-scrollbar]:hidden">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={t.name}
+                className="min-w-[280px] snap-start bg-white rounded-2xl p-7 flex flex-col gap-4 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 lg:min-w-0"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="w-full aspect-video rounded-[24px] overflow-hidden bg-light relative">
-                  <div className="absolute top-4 left-4 z-10 bg-gold text-dark text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
-                    {post.cat}
+                {/* Stars */}
+                <div className="flex gap-0.5 text-gold">
+                  {[...Array(5)].map((_, j) => (
+                    <StarIcon key={j} />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote className="text-base italic text-primary leading-[1.6] flex-1">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+
+                {/* Author */}
+                <div className="flex items-center gap-3 pt-2">
+                  <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white font-semibold text-base shrink-0">
+                    {t.name[0]}
                   </div>
-                  <div className="w-full h-full bg-secondary/10 group-hover:scale-105 transition-transform duration-500" />
+                  <div>
+                    <p className="text-primary text-[13px] font-semibold">{t.name}</p>
+                    <p className="text-secondary text-[11px]">{t.detail}</p>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-2 px-2">
-                  <h3 className="text-xl font-bold text-primary group-hover:text-gold transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-secondary line-clamp-2">{post.excerpt}</p>
-                  <p className="text-secondary/60 text-sm mt-1">
-                    Ingrid Parra · 1 Mar 2025 · 5 min
-                  </p>
-                  <Link
-                    href="/blog"
-                    className="text-primary font-bold text-sm mt-1 hover:text-gold transition-colors"
-                  >
-                    Leer más →
-                  </Link>
-                </div>
-              </motion.article>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="py-24 bg-gradient-to-b from-warm-white to-white border-t border-primary/5">
+      {/* ═══════════════════════════════════════════
+          SECTION 6: BLOG PREVIEW
+          ═══════════════════════════════════════════ */}
+      <section className="pt-4 pb-16 lg:pb-20 bg-warm-white">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <div className="w-20 h-px bg-gold/30 mx-auto mb-14" />
+          <div className="flex items-end justify-between mb-10">
+            <motion.h2
+              className="font-display text-[32px] lg:text-[40px] text-primary"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+              Artículos recientes
+            </motion.h2>
+            <Link
+              href="/blog"
+              className="hidden md:inline-flex text-gold font-semibold text-[13px] hover:text-gold-hover transition-colors items-center gap-1"
+            >
+              Ver todos <ArrowUpRight />
+            </Link>
+          </div>
+
+          <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-x-visible pb-4 lg:pb-0 -mx-6 px-6 lg:mx-0 lg:px-0 [&::-webkit-scrollbar]:hidden">
+            {blogPosts.map((post, i) => (
+              <motion.article
+                key={post.slug}
+                className="min-w-[280px] snap-start bg-white rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 lg:min-w-0"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <Link href={post.slug}>
+                  <div className="relative h-[180px] overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <span className="text-gold text-[11px] font-semibold uppercase tracking-[1px]">
+                      {post.cat}
+                    </span>
+                    <h3 className="font-display text-xl text-primary mt-2 leading-[1.3] group-hover:text-gold transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-secondary text-xs mt-2">{post.readTime}</p>
+                  </div>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+
+          <Link
+            href="/blog"
+            className="md:hidden inline-flex text-gold font-semibold text-sm mt-6 items-center gap-1"
+          >
+            Ver todos los artículos <ArrowUpRight />
+          </Link>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 7: CTA FINAL
+          ═══════════════════════════════════════════ */}
+      <section className="relative w-full h-[320px] lg:h-[320px] min-h-[280px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/cta/cta-bg.jpg"
+            alt="Centro médico VERTIX"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/70" />
+        </div>
+
         <motion.div
-          className="max-w-[800px] mx-auto px-6 text-center flex flex-col items-center gap-8"
-          initial={{ opacity: 0, y: 30 }}
+          className="relative z-10 text-center px-6 py-12"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-primary">
-            Listo para recuperar tu movimiento?
+          <h2 className="font-display text-[36px] lg:text-[44px] font-light text-warm-white leading-[1.2]">
+            Comienza tu <span className="text-gold">recuperación</span>
           </h2>
-          <p className="text-lg text-secondary">
-            Agenda tu valoración gratuita hoy mismo y comencemos a trazar tu
-            plan de recuperación personalizado.
+          <p className="text-warm-white/60 text-sm mt-4">
+            Agenda tu valoración y da el primer paso
           </p>
           <Link
             href="/contacto"
-            className="flex items-center justify-center h-16 px-10 bg-gold hover:bg-primary text-dark hover:text-white text-xl font-bold rounded-full transition-all hover:scale-105 shadow-xl shadow-gold/20"
+            className="group inline-flex items-center gap-3 h-[56px] px-10 bg-gold hover:bg-gold-hover text-dark font-semibold rounded-full transition-colors text-[15px] mt-8"
           >
-            Agenda tu cita ahora
+            Agenda tu cita
+            <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
-          <p className="text-primary font-bold text-lg mt-4 flex items-center gap-2">
-            <IconPhone size={20} className="text-primary" /> +57 300 7695747
+          <p className="text-warm-white/50 text-[13px] mt-5">
+            +57 300 769 5747
           </p>
         </motion.div>
       </section>

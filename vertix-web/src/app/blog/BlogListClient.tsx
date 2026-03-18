@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export interface BlogPostItem {
@@ -18,7 +18,19 @@ export interface BlogPostItem {
 
 const categories = ["Todos", "Fisioterapia", "Ortopedia", "Prevención", "Deporte"];
 
-const POSTS_PER_PAGE = 3;
+const POSTS_PER_PAGE = 6;
+
+const placeholderImages = [
+  "/images/blog/blog-1.jpg",
+  "/images/blog/blog-2.jpg",
+  "/images/blog/blog-3.jpg",
+];
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+};
 
 export default function BlogListClient({ posts }: { posts: BlogPostItem[] }) {
   const [active, setActive] = useState("Todos");
@@ -39,91 +51,144 @@ export default function BlogListClient({ posts }: { posts: BlogPostItem[] }) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-primary pt-32 pb-20 px-6">
+      <section className="bg-primary pt-36 pb-20 px-6">
         <div className="max-w-[1200px] mx-auto text-center">
-          <motion.h1
-            className="font-display text-5xl font-bold text-white mb-4"
+          <motion.span
+            className="inline-block text-gold text-sm font-medium uppercase tracking-[0.2em] mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            Aprende a moverte mejor
+            Vertix Centro Medico
+          </motion.span>
+          <motion.h1
+            className="font-display text-5xl md:text-6xl lg:text-7xl text-white mb-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          >
+            BLOG
           </motion.h1>
-          <p className="text-white/80 text-lg">Artículos sobre salud, movimiento y bienestar</p>
+          <motion.div
+            className="w-12 h-[2px] bg-gold mx-auto mb-5"
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          />
+          <motion.p
+            className="text-white/70 text-lg max-w-md mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+          >
+            Articulos sobre salud, movimiento y bienestar
+          </motion.p>
         </div>
       </section>
 
-      {/* Filters + Grid */}
-      <section className="py-16 px-6 bg-warm-white">
+      {/* Category Filters */}
+      <section className="bg-warm-white pt-12 pb-4 px-6">
         <div className="max-w-[1200px] mx-auto">
-          {/* Category pills */}
-          <div className="flex gap-3 mb-12 overflow-x-auto pb-2">
+          <motion.div
+            className="flex flex-wrap gap-3 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          >
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
-                className={`px-5 py-2 rounded-full font-medium text-sm whitespace-nowrap transition-all ${
+                className={`px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                   active === cat
                     ? "bg-gold text-dark"
-                    : "border border-primary/20 text-primary hover:bg-primary/5"
+                    : "border border-primary/30 text-primary hover:border-primary/60 hover:bg-primary/5"
                 }`}
               >
                 {cat}
               </button>
             ))}
-          </div>
+          </motion.div>
+        </div>
+      </section>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {paginatedPosts.map((post, i) => (
-              <motion.article
-                key={post.slug}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link href={`/blog/${post.slug}`} className="group flex flex-col gap-4">
-                  <div className="w-full aspect-video rounded-2xl overflow-hidden bg-light relative">
-                    <div className="absolute top-4 left-4 z-10 bg-gold text-dark text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
-                      {post.category}
-                    </div>
-                    {post.image ? (
+      {/* Blog Grid */}
+      <section className="py-12 pb-20 px-6 bg-warm-white">
+        <div className="max-w-[1200px] mx-auto">
+          {paginatedPosts.length === 0 ? (
+            <motion.div
+              className="text-center py-20"
+              {...fadeInUp}
+            >
+              <p className="text-primary/50 text-lg">No hay articulos en esta categoria todavia.</p>
+            </motion.div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {paginatedPosts.map((post, i) => (
+                <motion.article
+                  key={post.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: i * 0.1,
+                  }}
+                  className="group"
+                >
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="flex flex-col bg-white rounded-[16px] overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+                  >
+                    {/* Image */}
+                    <div className="relative w-full h-[180px] overflow-hidden bg-secondary/10">
                       <Image
-                        src={post.image}
+                        src={placeholderImages[i % 3]}
                         alt={post.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
-                    ) : (
-                      <div className="w-full h-full bg-secondary/10 group-hover:scale-105 transition-transform duration-500" />
-                    )}
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-bold text-primary group-hover:text-gold transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-secondary line-clamp-2 text-sm">{post.excerpt}</p>
-                    <div className="flex items-center gap-3 text-xs text-secondary/70 mt-1">
-                      <span>{post.author}</span>
-                      <span>·</span>
-                      <span>{post.date}</span>
-                      <span>·</span>
-                      <span>{post.readTime}</span>
+                      <div className="absolute top-4 left-4 z-10">
+                        <span className="bg-gold text-dark text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                          {post.category}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </motion.article>
-            ))}
-          </div>
+
+                    {/* Content */}
+                    <div className="flex flex-col gap-3 p-6">
+                      <h3 className="font-display text-xl text-primary group-hover:text-gold transition-colors duration-300 leading-tight">
+                        {post.title}
+                      </h3>
+                      <p className="text-secondary text-sm leading-relaxed line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center gap-2 text-xs text-primary/40 mt-1 pt-3 border-t border-primary/5">
+                        <span>{post.readTime} de lectura</span>
+                        <span className="text-gold">|</span>
+                        <span>{post.date}</span>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.article>
+              ))}
+            </div>
+          )}
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2 mt-12">
+            <motion.div
+              className="flex items-center justify-center gap-2 mt-16"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <button
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
                 className="w-10 h-10 flex items-center justify-center text-primary hover:bg-primary/10 rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                aria-label="Página anterior"
+                aria-label="Pagina anterior"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -134,10 +199,10 @@ export default function BlogListClient({ posts }: { posts: BlogPostItem[] }) {
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`w-10 h-10 flex items-center justify-center text-sm font-medium transition-colors ${
+                  className={`w-10 h-10 flex items-center justify-center text-sm font-medium rounded-full transition-all duration-300 ${
                     currentPage === page
-                      ? "bg-primary text-white rounded-full"
-                      : "text-primary hover:bg-primary/10 rounded-full"
+                      ? "bg-gold text-dark"
+                      : "text-primary hover:bg-primary/10"
                   }`}
                 >
                   {page}
@@ -148,13 +213,13 @@ export default function BlogListClient({ posts }: { posts: BlogPostItem[] }) {
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
                 className="w-10 h-10 flex items-center justify-center text-primary hover:bg-primary/10 rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                aria-label="Página siguiente"
+                aria-label="Pagina siguiente"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
-            </div>
+            </motion.div>
           )}
         </div>
       </section>
