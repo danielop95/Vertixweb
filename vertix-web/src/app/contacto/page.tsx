@@ -102,14 +102,6 @@ export default function ContactoPage() {
       {/* ── Hero ── */}
       <section className="bg-primary pt-32 pb-20 lg:pt-40 lg:pb-24">
         <div className="mx-auto max-w-7xl px-6 text-center">
-          <motion.span
-            className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-gold"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Centro Médico Vertix
-          </motion.span>
           <motion.h1
             className="font-display text-5xl font-bold text-white lg:text-7xl"
             initial={{ opacity: 0, y: 20 }}
@@ -117,23 +109,10 @@ export default function ContactoPage() {
             transition={{
               duration: 0.6,
               ease: [0.16, 1, 0.3, 1],
-              delay: 0.1,
             }}
           >
             CONTACTO
           </motion.h1>
-          <motion.p
-            className="mx-auto mt-4 max-w-lg text-lg text-white/70"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              ease: [0.16, 1, 0.3, 1],
-              delay: 0.2,
-            }}
-          >
-            Estamos aquí para ayudarte
-          </motion.p>
         </div>
       </section>
 
@@ -147,14 +126,6 @@ export default function ContactoPage() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {/* Gold label */}
-            <motion.span
-              variants={fadeInUp}
-              className="mb-6 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-gold"
-            >
-              Información de contacto
-            </motion.span>
-
             <motion.h2
               variants={fadeInUp}
               className="font-display mb-10 text-3xl font-bold text-dark lg:text-4xl"

@@ -13,7 +13,7 @@
   --color-whatsapp: #25D366;
 
   --font-sans: var(--font-manrope), 'Manrope', 'Arial', sans-serif;
-  --font-display: var(--font-rebelton), 'Rebelton', sans-serif;
+  --font-display: var(--font-playfair), 'Playfair Display', Georgia, serif;
 
   --radius-card: 1rem;
   --radius-organic: 3.75rem;
@@ -49,8 +49,7 @@
 }
 
 .font-display {
-  word-spacing: -0.45em;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
 }
 
 html {

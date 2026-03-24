@@ -249,7 +249,7 @@ export default function Home() {
                 Conoce a tu especialista
               </span>
               <h2 className="font-display text-3xl lg:text-4xl text-primary mt-3 leading-[1.2]">
-                Dra. Ingrid Carolina <span className="text-gold">Parra</span>
+                Dra. Ingrid Carolina Parra
               </h2>
               <p className="text-gold font-semibold text-[13px] mt-2">
                 Rehabilitadora Deportiva · Directora Clínica
@@ -296,9 +296,6 @@ export default function Home() {
           >
             <div className="w-px h-16 bg-gold hidden lg:block mt-2" />
             <div>
-              <p className="text-gold text-[11px] font-semibold uppercase tracking-[3px] mb-3">
-                Lo que hacemos por ti
-              </p>
               <h2 className="font-display text-[32px] lg:text-[44px] text-primary leading-[1.1]">
                 Nuestras especialidades
               </h2>
@@ -632,9 +629,6 @@ export default function Home() {
           <h2 className="font-display text-[36px] lg:text-[44px] font-light text-warm-white leading-[1.2]">
             Comienza tu <span className="text-gold">recuperación</span>
           </h2>
-          <p className="text-warm-white/60 text-sm mt-4">
-            Agenda tu valoración y da el primer paso
-          </p>
           <Link
             href="/contacto"
             className="group inline-flex items-center gap-3 h-[56px] px-10 bg-gold hover:bg-gold-hover text-dark font-semibold rounded-full transition-colors text-[15px] mt-8"
@@ -642,9 +636,6 @@ export default function Home() {
             Agenda tu cita
             <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
-          <p className="text-warm-white/50 text-[13px] mt-5">
-            +57 300 769 5747
-          </p>
         </motion.div>
       </section>
     </>

@@ -111,7 +111,8 @@ export default function NosotrosPage() {
             priority
           />
           {/* Verde musgo gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(97,103,89,0.9)] via-[rgba(97,103,89,0.4)] to-[rgba(97,103,89,0.1)]" />
+          <div className="absolute inset-0 bg-primary/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[rgba(97,103,89,0.3)] via-transparent to-[rgba(97,103,89,0.3)]" />
         </div>
 
         <motion.div
@@ -120,30 +121,11 @@ export default function NosotrosPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.p
-            className="text-gold font-bold tracking-[0.2em] uppercase text-sm mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Sobre nosotros
-          </motion.p>
-
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight">
-            NACIMOS DE UNA
+            Nacimos de una
             <br />
-            <span className="text-gold">NECESIDAD REAL</span>
+            <span className="text-gold">necesidad real</span>
           </h1>
-
-          <motion.p
-            className="mt-8 text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Porque la rehabilitacion no deberia ser generica. En VERTIX, cada tratamiento esta disenado
-            para tu cuerpo, tu historia y tus metas.
-          </motion.p>
         </motion.div>
       </section>
 
@@ -159,9 +141,6 @@ export default function NosotrosPage() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            <motion.p variants={fadeInUp} className="text-gold font-bold tracking-[0.2em] uppercase text-sm mb-4">
-              Nuestra historia
-            </motion.p>
             <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-5xl text-[#2C2C2A]">
               De una vision a una realidad
             </motion.h2>
@@ -218,9 +197,6 @@ export default function NosotrosPage() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            <motion.p variants={fadeInUp} className="text-[#ECC794] font-bold tracking-[0.2em] uppercase text-sm mb-4">
-              Lo que nos mueve
-            </motion.p>
             <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-5xl text-white">
               Mision y Vision
             </motion.h2>
@@ -300,9 +276,6 @@ export default function NosotrosPage() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            <motion.p variants={fadeInUp} className="text-[#ECC794] font-bold tracking-[0.2em] uppercase text-sm mb-4">
-              Nuestros principios
-            </motion.p>
             <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-5xl text-[#2C2C2A]">
               Los valores que nos definen
             </motion.h2>
@@ -321,7 +294,7 @@ export default function NosotrosPage() {
                 className="group bg-white rounded-[24px] rounded-tr-[60px] p-8 lg:p-10 border border-[#616759]/[0.08] hover:border-[#ECC794]/40 transition-all duration-500 hover:shadow-lg hover:shadow-[#ECC794]/[0.06]"
                 variants={fadeInUp}
               >
-                <span className="font-display text-5xl text-[#ECC794]/60 group-hover:text-[#ECC794] transition-colors duration-500">
+                <span className="font-display text-5xl text-[#ECC794]/80 group-hover:text-[#ECC794] transition-colors duration-500">
                   {val.num}
                 </span>
                 <h3 className="font-display text-xl text-[#2C2C2A] mt-4 mb-3">{val.name}</h3>
@@ -344,15 +317,9 @@ export default function NosotrosPage() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            <motion.p variants={fadeInUp} className="text-[#ECC794] font-bold tracking-[0.2em] uppercase text-sm mb-4">
-              Quienes somos
-            </motion.p>
             <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-5xl text-[#2C2C2A]">
               Nuestro equipo
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-[#616759] mt-4 max-w-lg mx-auto">
-              Profesionales comprometidos con tu bienestar, especializados en devolverte al maximo nivel.
-            </motion.p>
           </motion.div>
 
           {/* Featured: Dra. Ingrid */}
@@ -383,32 +350,15 @@ export default function NosotrosPage() {
                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-2">
                   Dra. Ingrid Carolina
                   <br />
-                  <span className="text-[#ECC794]">Parra</span>
+                  Parra
                 </h3>
                 <p className="text-white/60 text-lg mb-8">Rehabilitadora Deportiva</p>
 
                 {/* Quote */}
-                <blockquote className="relative text-white/80 text-lg leading-relaxed mb-8 max-w-xl pl-6 border-l-2 border-[#ECC794]/40">
+                <blockquote className="relative text-white/80 text-lg leading-relaxed max-w-xl pl-6 border-l-2 border-[#ECC794]/40">
                   Mi enfoque no es solo quitar el dolor. Es restaurar tu funcionalidad, optimizar tu movimiento
                   y educarte para que no vuelvas a lesionarte.
                 </blockquote>
-
-                {/* Specializations */}
-                <div>
-                  <p className="text-white/40 font-bold tracking-[0.15em] uppercase text-xs mb-4">
-                    Especializaciones
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {specializations.map((spec) => (
-                      <span
-                        key={spec}
-                        className="px-4 py-2 rounded-full bg-white/[0.08] text-white/80 text-sm border border-white/10"
-                      >
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </motion.div>
@@ -469,11 +419,8 @@ export default function NosotrosPage() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="font-display text-[36px] lg:text-[48px] text-white leading-[1.2]">
-            AGENDA TU <span className="text-[#ECC794]">CITA</span>
+            Agenda tu <span className="text-[#ECC794]">cita</span>
           </h2>
-          <p className="text-white/60 text-base mt-4 max-w-md mx-auto">
-            Da el primer paso hacia tu recuperacion. Nuestro equipo esta listo para ayudarte.
-          </p>
           <Link
             href="/contacto"
             className="group inline-flex items-center gap-3 h-[56px] px-10 bg-[#ECC794] hover:bg-[#d4b37a] text-[#2C2C2A] font-bold rounded-full transition-colors text-[15px] mt-8"
@@ -481,9 +428,6 @@ export default function NosotrosPage() {
             Agenda tu cita
             <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
-          <p className="text-white/50 text-[13px] mt-5">
-            +57 300 769 5747
-          </p>
         </motion.div>
       </section>
     </>

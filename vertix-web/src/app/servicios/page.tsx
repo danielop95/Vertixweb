@@ -231,7 +231,7 @@ export default function ServiciosPage() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="font-display text-[64px] lg:text-[80px] text-gold/20 leading-none block"
+                className="font-display text-[64px] lg:text-[80px] text-gold/35 leading-none block"
               >
                 {services[0].num}
               </motion.span>
@@ -317,7 +317,7 @@ export default function ServiciosPage() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="font-display text-[64px] lg:text-[80px] text-gold/20 leading-none block"
+                className="font-display text-[64px] lg:text-[80px] text-gold/35 leading-none block"
               >
                 {services[1].num}
               </motion.span>
@@ -403,7 +403,7 @@ export default function ServiciosPage() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="font-display text-[64px] lg:text-[80px] text-gold/20 leading-none block"
+                className="font-display text-[64px] lg:text-[80px] text-gold/35 leading-none block"
               >
                 {services[2].num}
               </motion.span>
@@ -489,7 +489,7 @@ export default function ServiciosPage() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="font-display text-[64px] lg:text-[80px] text-gold/20 leading-none block"
+                className="font-display text-[64px] lg:text-[80px] text-gold/35 leading-none block"
               >
                 {services[3].num}
               </motion.span>
@@ -586,8 +586,7 @@ export default function ServiciosPage() {
                 variants={fadeInUp}
                 className="font-display text-[32px] lg:text-[44px] text-primary leading-[1.1] mt-4"
               >
-                Dra. Ingrid Carolina{" "}
-                <span className="text-gold">Parra</span>
+                Dra. Ingrid Carolina Parra
               </motion.h2>
 
               <motion.p
@@ -626,15 +625,6 @@ export default function ServiciosPage() {
                 ))}
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="mt-8">
-                <Link
-                  href="/contacto"
-                  className="group inline-flex items-center gap-3 h-[52px] px-8 border border-primary/30 hover:border-gold hover:text-gold text-primary font-semibold rounded-full transition-colors text-sm"
-                >
-                  Agenda con la Dra. Parra
-                  <ArrowUpRight className="opacity-60 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -664,43 +654,17 @@ export default function ServiciosPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="flex items-center gap-4 justify-center mb-6">
-            <div className="w-10 h-px bg-gold" />
-            <span className="text-gold text-[11px] font-semibold uppercase tracking-[4px]">
-              Da el primer paso
-            </span>
-            <div className="w-10 h-px bg-gold" />
-          </div>
-
           <h2 className="font-display text-[36px] lg:text-[52px] font-bold text-warm-white leading-[1.1]">
-            COMIENZA TU{" "}
-            <span className="text-gold">RECUPERACIÓN</span>
+            Comienza tu <span className="text-gold">recuperación</span>
           </h2>
 
-          <p className="text-warm-white/60 text-sm lg:text-base mt-5 max-w-md mx-auto leading-relaxed">
-            Agenda tu valoración y permítenos diseñar un plan personalizado para ti.
-            Tu bienestar es nuestra prioridad.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-8">
-            <Link
-              href="/contacto"
-              className="group inline-flex items-center gap-3 h-[56px] px-10 bg-gold hover:bg-gold-hover text-dark font-bold rounded-full transition-colors text-base"
-            >
-              Agenda tu cita
-              <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-
-            <a
-              href="tel:+573007695747"
-              className="inline-flex items-center gap-3 h-[56px] px-10 border border-warm-white/30 hover:border-warm-white/60 text-warm-white font-semibold rounded-full transition-colors text-base"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-              </svg>
-              +57 300 769 5747
-            </a>
-          </div>
+          <Link
+            href="/contacto"
+            className="group inline-flex items-center gap-3 h-[56px] px-10 bg-gold hover:bg-gold-hover text-dark font-bold rounded-full transition-colors text-base mt-8"
+          >
+            Agenda tu cita
+            <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </motion.div>
       </section>
     </>
