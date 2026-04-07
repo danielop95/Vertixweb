@@ -248,7 +248,7 @@ export default function Home() {
               <span className="text-secondary text-[11px] font-semibold uppercase tracking-[3px]">
                 Conoce a tu especialista
               </span>
-              <h2 className="font-display text-3xl lg:text-4xl text-primary mt-3 leading-[1.2]">
+              <h2 className="font-display text-4xl lg:text-5xl font-bold text-primary mt-3 leading-[1.05]">
                 Dra. Ingrid Carolina Parra
               </h2>
               <p className="text-gold font-semibold text-[13px] mt-2">
@@ -296,7 +296,7 @@ export default function Home() {
           >
             <div className="w-px h-16 bg-gold hidden lg:block mt-2" />
             <div>
-              <h2 className="font-display text-[32px] lg:text-[44px] text-primary leading-[1.1]">
+              <h2 className="font-display text-[36px] lg:text-[52px] font-bold text-primary leading-[1.05]">
                 Nuestras especialidades
               </h2>
             </div>
@@ -320,7 +320,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 p-7 lg:p-10 flex flex-col justify-end">
                 <div className="w-10 h-0.5 bg-gold mb-4 transition-all duration-500 group-hover:w-16" />
-                <h3 className="font-display text-2xl lg:text-3xl text-warm-white">{services[0].title}</h3>
+                <h3 className="font-display text-2xl lg:text-3xl font-bold text-warm-white">{services[0].title}</h3>
                 <p className="text-warm-white/60 text-sm mt-2 max-w-md opacity-100 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
                   {services[0].desc}
                 </p>
@@ -346,7 +346,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 p-7 lg:p-10 flex flex-col justify-end">
                 <div className="w-10 h-0.5 bg-gold mb-4 transition-all duration-500 group-hover:w-16" />
-                <h3 className="font-display text-2xl lg:text-3xl text-warm-white">{services[1].title}</h3>
+                <h3 className="font-display text-2xl lg:text-3xl font-bold text-warm-white">{services[1].title}</h3>
                 <p className="text-warm-white/60 text-sm mt-2 max-w-sm opacity-100 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
                   {services[1].desc}
                 </p>
@@ -372,7 +372,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 p-7 lg:p-10 flex flex-col justify-end">
                 <div className="w-10 h-0.5 bg-gold mb-4 transition-all duration-500 group-hover:w-16" />
-                <h3 className="font-display text-2xl lg:text-3xl text-warm-white">{services[2].title}</h3>
+                <h3 className="font-display text-2xl lg:text-3xl font-bold text-warm-white">{services[2].title}</h3>
                 <p className="text-warm-white/60 text-sm mt-2 max-w-sm opacity-100 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
                   {services[2].desc}
                 </p>
@@ -398,7 +398,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 p-7 lg:p-10 flex flex-col justify-end">
                 <div className="w-10 h-0.5 bg-gold mb-4 transition-all duration-500 group-hover:w-16" />
-                <h3 className="font-display text-2xl lg:text-3xl text-warm-white">{services[3].title}</h3>
+                <h3 className="font-display text-2xl lg:text-3xl font-bold text-warm-white">{services[3].title}</h3>
                 <p className="text-warm-white/60 text-sm mt-2 max-w-md opacity-100 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400">
                   {services[3].desc}
                 </p>
@@ -463,7 +463,7 @@ export default function Home() {
               <span className="font-display text-[64px] text-gold leading-[0.5] block mb-4">
                 &ldquo;
               </span>
-              <h2 className="font-display text-2xl lg:text-[28px] text-warm-white leading-[1.3]">
+              <h2 className="font-display text-3xl lg:text-[40px] font-bold text-warm-white leading-[1.05]">
                 No tratamos síntomas,
                 <br />
                 tratamos <span className="text-gold">personas</span>
@@ -492,7 +492,7 @@ export default function Home() {
       <section className="py-16 lg:py-20 bg-warm-white">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <motion.h2
-            className="font-display text-[32px] lg:text-[40px] text-primary text-center mb-12"
+            className="font-display text-[32px] lg:text-[40px] font-bold text-primary text-center mb-12 leading-[1.05]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -547,7 +547,7 @@ export default function Home() {
           <div className="w-20 h-px bg-gold/30 mx-auto mb-14" />
           <div className="flex items-end justify-between mb-10">
             <motion.h2
-              className="font-display text-[32px] lg:text-[40px] text-primary"
+              className="font-display text-[32px] lg:text-[40px] font-bold text-primary leading-[1.05]"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -626,7 +626,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display text-[36px] lg:text-[44px] font-light text-warm-white leading-[1.2]">
+          <h2 className="font-display text-[36px] lg:text-[44px] font-bold text-warm-white leading-[1.05]">
             Comienza tu <span className="text-gold">recuperación</span>
           </h2>
           <Link
