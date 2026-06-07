@@ -104,7 +104,7 @@ export default function NosotrosPage() {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero/hero-bg.jpg"
+            src="/images/hero/hero-bg.webp"
             alt="Centro medico VERTIX"
             fill
             className="object-cover"
@@ -334,7 +334,7 @@ export default function NosotrosPage() {
               {/* Photo */}
               <div className="relative w-full lg:w-[420px] h-[400px] lg:h-[520px] shrink-0">
                 <Image
-                  src="/images/team/dra-ingrid.png"
+                  src="/images/team/draingrid 2.jpg"
                   alt="Dra. Ingrid Carolina Parra - Fundadora de VERTIX"
                   fill
                   className="object-cover object-top"
@@ -403,7 +403,7 @@ export default function NosotrosPage() {
       <section className="relative w-full h-[360px] lg:h-[380px] min-h-[300px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/cta/cta-bg.jpg"
+            src="/images/cta/cta-bg2.jpg"
             alt="Centro medico VERTIX"
             fill
             className="object-cover"

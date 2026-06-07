@@ -41,7 +41,7 @@ const services = [
   {
     num: "01",
     title: "Medicina del Deporte",
-    image: "/images/servicios/medicina-deporte.jpg",
+    image: "/images/servicios/medicina-deporte.webp",
     imageAlt: "Medicina del deporte en VERTIX - evaluación deportiva profesional",
     paragraphs: [
       "La medicina del deporte va mucho más allá de tratar lesiones. En VERTIX, abordamos al deportista de manera integral, evaluando su condición física, biomecánica y factores de riesgo para diseñar planes preventivos y de tratamiento basados en evidencia científica.",
@@ -58,7 +58,7 @@ const services = [
   {
     num: "02",
     title: "Ortopedia Especializada",
-    image: "/images/servicios/ortopedia.jpg",
+    image: "/images/servicios/ortopedia.webp",
     imageAlt: "Ortopedia especializada - diagnóstico musculoesquelético avanzado",
     paragraphs: [
       "La ortopedia es la columna vertebral de nuestra práctica clínica. Diagnosticamos y tratamos patologías del sistema musculoesquelético con un enfoque conservador y basado en la funcionalidad, priorizando siempre las intervenciones menos invasivas.",
@@ -75,7 +75,7 @@ const services = [
   {
     num: "03",
     title: "Fisioterapia Avanzada",
-    image: "/images/servicios/fisioterapia.jpg",
+    image: "/images/servicios/fisioterapia.webp",
     imageAlt: "Fisioterapia avanzada - terapia manual y rehabilitación funcional",
     paragraphs: [
       "Nuestra fisioterapia va más allá de las técnicas convencionales. Utilizamos terapias manuales avanzadas, ejercicio terapéutico progresivo y tecnología de última generación para restaurar tu movilidad y eliminar el dolor de raíz.",
@@ -91,7 +91,7 @@ const services = [
   {
     num: "04",
     title: "Entrenamiento Personalizado",
-    image: "/images/servicios/entrenamiento.jpg",
+    image: "/images/servicios/entrenamiento.webp",
     imageAlt: "Entrenamiento personalizado - acondicionamiento físico a medida",
     paragraphs: [
       "El entrenamiento personalizado es el puente entre la rehabilitación y el rendimiento. Diseñamos programas de acondicionamiento físico individualizados que complementan tu proceso de recuperación y te preparan para volver a tu actividad con confianza.",
@@ -124,7 +124,7 @@ export default function ServiciosPage() {
         {/* Background image */}
         <div className="absolute inset-0 bg-[#2C2C2A]">
           <Image
-            src="/images/servicios/medicina-deporte.jpg"
+            src="/images/hero/hero-bg2.webp.jpg"
             alt="Servicios médicos especializados en VERTIX"
             fill
             priority
@@ -559,7 +559,7 @@ export default function ServiciosPage() {
                 style={{ borderRadius: "200px 200px 24px 24px" }}
               >
                 <Image
-                  src="/images/team/dra-ingrid.png"
+                  src="/images/team/dra-ingrid.webp"
                   alt="Dra. Ingrid Carolina Parra — Rehabilitadora Deportiva y Directora Clínica de VERTIX"
                   fill
                   className="object-cover"
@@ -637,7 +637,7 @@ export default function ServiciosPage() {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/cta/cta-bg.jpg"
+            src="/images/cta/cta-bg.webp"
             alt="Centro médico VERTIX — comienza tu recuperación"
             fill
             className="object-cover"

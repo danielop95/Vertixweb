@@ -39,22 +39,22 @@ const services = [
   {
     title: "Medicina del Deporte",
     desc: "Evaluación y tratamiento de lesiones deportivas para atletas de todos los niveles.",
-    image: "/images/servicios/medicina-deporte.jpg",
+    image: "/images/servicios/medicina-deporte.webp",
   },
   {
     title: "Ortopedia Especializada",
     desc: "Diagnóstico preciso de condiciones musculoesqueléticas.",
-    image: "/images/servicios/ortopedia.jpg",
+    image: "/images/servicios/ortopedia.webp",
   },
   {
     title: "Fisioterapia Avanzada",
     desc: "Terapias manuales e instrumentales de vanguardia.",
-    image: "/images/servicios/fisioterapia.jpg",
+    image: "/images/servicios/fisioterapia.webp",
   },
   {
     title: "Entrenamiento Personalizado",
     desc: "Programas de acondicionamiento y prevención de lesiones.",
-    image: "/images/servicios/entrenamiento.jpg",
+    image: "/images/servicios/entrenamiento.webp",
   },
 ];
 
@@ -117,7 +117,7 @@ export default function Home() {
         {/* Background image */}
         <div className="absolute inset-0 bg-[#2C2C2A]">
           <Image
-            src="/images/hero/hero-bg.jpg"
+            src="/images/hero/hero-bg.webp"
             alt="Fisioterapia profesional en clínica moderna"
             fill
             priority
@@ -229,7 +229,7 @@ export default function Home() {
             >
               <div className="relative w-full h-[300px] lg:h-[340px] overflow-hidden" style={{ borderRadius: "200px 200px 24px 24px" }}>
                 <Image
-                  src="/images/team/dra-ingrid.png"
+                  src="/images/team/dra-ingrid.webp"
                   alt="Dra. Ingrid Carolina Parra — Rehabilitadora Deportiva"
                   fill
                   className="object-cover"
@@ -444,7 +444,7 @@ export default function Home() {
             >
               <div className="relative w-full h-[300px] lg:h-[400px] overflow-hidden" style={{ borderRadius: "24px 24px 120px 24px" }}>
                 <Image
-                  src="/images/filosofia/filosofia-bg.png"
+                  src="/images/filosofia/Mesa de trabajo 3-100.jpg"
                   alt="Filosofía VERTIX — atención personalizada"
                   fill
                   className="object-cover"
@@ -611,7 +611,7 @@ export default function Home() {
       <section className="relative w-full h-[320px] lg:h-[320px] min-h-[280px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/cta/cta-bg.jpg"
+            src="/images/cta/cta-bg.webp"
             alt="Centro médico VERTIX"
             fill
             className="object-cover"
