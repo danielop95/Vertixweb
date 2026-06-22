@@ -63,13 +63,13 @@ const contactItems = [
   {
     icon: IconClock,
     label: "Horario",
-    content: "Lunes – Sábado, 7:00am – 6:30pm\nJornada continua",
+    content: "Lun–Vie 7:00am–6:30pm\nSáb 7:30am–12:00pm",
   },
   {
     icon: IconInstagram,
     label: "Instagram",
-    content: "@vertix.fisio",
-    href: "https://instagram.com/vertix.fisio",
+    content: "@vertixmed",
+    href: "https://instagram.com/vertixmed",
     external: true,
   },
 ];
@@ -390,7 +390,7 @@ export default function ContactoPage() {
       <section className="w-full">
         <div className="h-[400px] w-full lg:h-[480px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.1234!2d-74.8123!3d10.9878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDU5JzE2LjEiTiA3NMKwNDgnNDQuMyJX!5e0!3m2!1ses!2sco!4v1234567890"
+            src="https://www.google.com/maps?q=Carrera+47+%2380-115,+Barranquilla,+Colombia&output=embed&hl=es"
             width="100%"
             height="100%"
             style={{ border: 0 }}

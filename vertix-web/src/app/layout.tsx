@@ -57,7 +57,7 @@ const jsonLd = {
     addressCountry: "CO",
   },
   telephone: "+573150651717",
-  openingHours: "Mo-Sa 07:00-18:30",
+  openingHours: ["Mo-Fr 07:00-18:30", "Sa 07:30-12:00"],
   priceRange: "$$",
   medicalSpecialty: ["Orthopedic", "PhysicalTherapy", "SportsMedicine"],
 };

@@ -201,7 +201,7 @@ export default function Home() {
                   <span className="text-warm-white/50 text-xs">5.0 valoración</span>
                 </div>
                 <div className="w-px h-4 bg-warm-white/15" />
-                <span className="text-warm-white/50 text-xs">Lun–Sáb · 7am–6:30pm</span>
+                <span className="text-warm-white/50 text-xs">Lun–Vie · 7am–6:30pm · Sáb 7:30–12pm</span>
                 <div className="w-px h-4 bg-warm-white/15 hidden md:block" />
                 <span className="text-warm-white/50 text-xs hidden md:block">4 especialidades</span>
               </motion.div>

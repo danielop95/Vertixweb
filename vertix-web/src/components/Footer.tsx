@@ -69,11 +69,9 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <IconClock size={18} className="text-gold shrink-0 mt-0.5" />
                 <span>
-                  Lunes – Sábado
+                  Lunes – Viernes: 7:00am – 6:30pm
                   <br />
-                  7:00am – 6:30pm
-                  <br />
-                  Jornada continua
+                  Sábados: 7:30am – 12:00pm
                 </span>
               </li>
               <li className="flex items-center gap-3">
