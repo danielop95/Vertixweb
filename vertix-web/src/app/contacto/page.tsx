@@ -45,14 +45,8 @@ const contactItems = [
   {
     icon: IconMapPin,
     label: "Dirección",
-    content: "Cra 47 #80-125, Barranquilla, Colombia",
-    href: "https://maps.google.com/?q=Cra+47+%2380-125+Barranquilla+Colombia",
-  },
-  {
-    icon: IconPhone,
-    label: "Teléfono",
-    content: "+57 300 7695747",
-    href: "tel:+573007695747",
+    content: "Cra 47 #80 - 115, Barranquilla, Colombia",
+    href: "https://maps.google.com/?q=Cra+47+%2380-115+Barranquilla+Colombia",
   },
   {
     icon: IconPhone,
@@ -175,7 +169,7 @@ export default function ContactoPage() {
             {/* WhatsApp button */}
             <motion.div variants={fadeInUp} className="mt-8">
               <a
-                href="https://wa.me/573007695747?text=Hola!%20Me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20Vertix"
+                href="https://wa.me/573150651717?text=Hola!%20Me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20Vertix"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 rounded-full bg-whatsapp px-8 py-3.5 font-bold text-white transition-transform hover:scale-[1.03] active:scale-100"
@@ -426,14 +420,14 @@ export default function ContactoPage() {
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
-              href="tel:+573007695747"
+              href="tel:+573150651717"
               className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-8 py-3.5 font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
             >
               <IconPhone size={18} />
-              +57 300 7695747
+              315 065 1717
             </a>
             <a
-              href="https://wa.me/573007695747?text=Hola!%20Me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20Vertix"
+              href="https://wa.me/573150651717?text=Hola!%20Me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20Vertix"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full bg-whatsapp px-8 py-3.5 font-bold text-white transition-transform hover:scale-[1.03] active:scale-100"

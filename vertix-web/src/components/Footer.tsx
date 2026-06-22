@@ -52,19 +52,10 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <IconMapPin size={18} className="text-gold shrink-0 mt-0.5" />
                 <span>
-                  Cra 47 #80-125
+                  Cra 47 #80 - 115
                   <br />
                   Barranquilla, Colombia
                 </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <IconPhone size={18} className="text-gold shrink-0" />
-                <a
-                  href="tel:+573007695747"
-                  className="hover:text-gold transition-colors"
-                >
-                  +57 300 7695747
-                </a>
               </li>
               <li className="flex items-center gap-3">
                 <IconPhone size={18} className="text-gold shrink-0" />

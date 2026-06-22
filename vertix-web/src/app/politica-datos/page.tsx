@@ -18,7 +18,7 @@ export default function PoliticaDatosPage() {
         <div className="max-w-3xl mx-auto space-y-10 text-secondary leading-relaxed">
           <div>
             <h2 className="font-display text-2xl font-bold text-primary mb-4">Identificación del responsable</h2>
-            <p>VERTIX Centro Médico y Rehabilitación<br />NIT: 901.941.962-6<br />Dirección: Cra 47 #80-125, Barranquilla, Colombia<br />Correo: centromedico_vertix@outlook.com<br />Teléfono: +57 300 7695747</p>
+            <p>VERTIX Centro Médico y Rehabilitación<br />NIT: 901.941.962-6<br />Dirección: Cra 47 #80 - 115, Barranquilla, Colombia<br />Correo: centromedico_vertix@outlook.com<br />Teléfono: +57 315 065 1717</p>
           </div>
 
           <div>

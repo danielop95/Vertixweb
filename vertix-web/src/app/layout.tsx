@@ -52,11 +52,11 @@ const jsonLd = {
     "Rehabilitación integral con medicina del deporte, ortopedia especializada y fisioterapia avanzada.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Cra 47 #80-125",
+    streetAddress: "Cra 47 #80 - 115",
     addressLocality: "Barranquilla",
     addressCountry: "CO",
   },
-  telephone: "+573007695747",
+  telephone: "+573150651717",
   openingHours: "Mo-Sa 07:00-18:30",
   priceRange: "$$",
   medicalSpecialty: ["Orthopedic", "PhysicalTherapy", "SportsMedicine"],
