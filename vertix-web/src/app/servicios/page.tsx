@@ -78,14 +78,13 @@ const services = [
     image: "/images/servicios/fisioterapia.webp",
     imageAlt: "Fisioterapia avanzada - terapia manual y rehabilitación funcional",
     paragraphs: [
-      "Nuestra fisioterapia va más allá de las técnicas convencionales. Utilizamos terapias manuales avanzadas, ejercicio terapéutico progresivo y tecnología de última generación para restaurar tu movilidad y eliminar el dolor de raíz.",
+      "Cada lesión tiene una causa. En VERTIX la identificamos y la tratamos mediante terapia manual avanzada, ejercicio terapéutico progresivo y tecnología de última generación, para que recuperes la movilidad y vivas sin dolor.",
       "Cada sesión es personalizada y orientada a objetivos funcionales claros. No seguimos protocolos genéricos: diseñamos tu rehabilitación alrededor de tus necesidades específicas, tu estilo de vida y tus metas de recuperación.",
     ],
     bullets: [
       "Terapia manual ortopédica y miofascial",
       "Ejercicio terapéutico y control motor",
-      "Neuromodulación y punción seca",
-      "Rehabilitación funcional post-quirúrgica",
+"Rehabilitación funcional post-quirúrgica",
     ],
   },
   {
