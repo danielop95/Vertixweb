@@ -18,7 +18,7 @@ export default function PoliticaDatosPage() {
         <div className="max-w-3xl mx-auto space-y-10 text-secondary leading-relaxed">
           <div>
             <h2 className="font-display text-2xl font-bold text-primary mb-4">Identificación del responsable</h2>
-            <p>VERTIX Centro Médico y Rehabilitación<br />NIT: 901.941.962-6<br />Dirección: Cra 47 #80 - 115, Barranquilla, Colombia<br />Correo: centromedico_vertix@outlook.com<br />Teléfono: +57 315 065 1717</p>
+            <p>VERTIX Centro Médico y Rehabilitación<br />NIT: 901.941.962-6<br />Dirección: Cra 47 #80 - 115, Barranquilla, Colombia<br />Correo: info@cmvertix.com<br />Teléfono: +57 315 065 1717</p>
           </div>
 
           <div>
@@ -38,7 +38,7 @@ export default function PoliticaDatosPage() {
 
           <div>
             <h2 className="font-display text-2xl font-bold text-primary mb-4">Procedimiento para ejercer derechos</h2>
-            <p>Para ejercer sus derechos, envíe una solicitud a centromedico_vertix@outlook.com indicando su nombre completo, número de identificación, descripción de la solicitud y datos de contacto. Se atenderá en un plazo máximo de 15 días hábiles.</p>
+            <p>Para ejercer sus derechos, envíe una solicitud a info@cmvertix.com indicando su nombre completo, número de identificación, descripción de la solicitud y datos de contacto. Se atenderá en un plazo máximo de 15 días hábiles.</p>
           </div>
         </div>
       </section>

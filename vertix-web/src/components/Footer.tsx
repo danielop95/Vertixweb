@@ -77,10 +77,10 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <IconMail size={18} className="text-gold shrink-0" />
                 <a
-                  href="mailto:centromedico_vertix@outlook.com"
+                  href="mailto:info@cmvertix.com"
                   className="hover:text-gold transition-colors"
                 >
-                  centromedico_vertix@outlook.com
+                  info@cmvertix.com
                 </a>
               </li>
             </ul>

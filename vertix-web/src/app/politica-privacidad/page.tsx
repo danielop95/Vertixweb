@@ -18,7 +18,7 @@ export default function PoliticaPrivacidadPage() {
         <div className="max-w-3xl mx-auto space-y-10 text-secondary leading-relaxed">
           <div>
             <h2 className="font-display text-2xl font-bold text-primary mb-4">Responsable del tratamiento</h2>
-            <p>VERTIX Centro Médico y Rehabilitación<br />NIT: 901.941.962-6<br />Cra 47 #80 - 115, Barranquilla, Colombia<br />Email: centromedico_vertix@outlook.com</p>
+            <p>VERTIX Centro Médico y Rehabilitación<br />NIT: 901.941.962-6<br />Cra 47 #80 - 115, Barranquilla, Colombia<br />Email: info@cmvertix.com</p>
           </div>
 
           <div>
@@ -43,7 +43,7 @@ export default function PoliticaPrivacidadPage() {
 
           <div>
             <h2 className="font-display text-2xl font-bold text-primary mb-4">Contacto</h2>
-            <p>Para ejercer sus derechos o realizar consultas sobre el tratamiento de sus datos personales, puede contactarnos en centromedico_vertix@outlook.com o en nuestra dirección física.</p>
+            <p>Para ejercer sus derechos o realizar consultas sobre el tratamiento de sus datos personales, puede contactarnos en info@cmvertix.com o en nuestra dirección física.</p>
           </div>
         </div>
       </section>

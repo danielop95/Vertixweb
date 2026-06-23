@@ -57,8 +57,8 @@ const contactItems = [
   {
     icon: IconMail,
     label: "Email",
-    content: "centromedico_vertix@outlook.com",
-    href: "mailto:centromedico_vertix@outlook.com",
+    content: "info@cmvertix.com",
+    href: "mailto:info@cmvertix.com",
   },
   {
     icon: IconClock,
