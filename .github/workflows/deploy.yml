@@ -1,0 +1,33 @@
+name: Build and Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: vertix-web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: vertix-web
+        run: npm ci
+
+      - name: Build static export
+        working-directory: vertix-web
+        run: npm run build
+
+      - name: Deploy to hostinger-deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: vertix-web/out
+          publish_branch: hostinger-deploy
+          force_orphan: true
